@@ -1,0 +1,685 @@
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../fonts/NotoSans-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../fonts/NotoSans-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../fonts/NotoSans-Bold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/JetBrainsMono-Regular.ttf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/JetBrainsMono-Medium.ttf");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/JetBrainsMono-Italic.ttf");
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Bitter";
+    src: url("../fonts/Bitter-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Symbols NerdFont Mono";
+    src: url("../fonts/SymbolsNerdFontMono-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    --category[-subcategory]-style[-parents][_mode]
+*/
+
+:root {
+    --font-family-head:       "Noto Sans";
+    --font-family-text:       "Noto Sans";
+    --font-family-serif:      "Bitter";
+    --font-family-code:       "JetBrains Mono";
+    --font-family-symbols:    "Symbols NerdFont Mono";
+
+    --size-header:            3rem;
+    --size-side:              30rex;
+    --size-main:              120rex;
+
+    --color-fore-head-1:        oklch( 92%   0   0);
+    --color-fore-head-2:        oklch( 80%   0   0);
+    --color-fore-head-3:        oklch( 84%   0   0);
+    --color-fore-head-4:        oklch( 88%   0   0);
+    --color-fore-text:          oklch( 80%   0   0);
+    --color-fore-meta:          oklch( 40%   0   0);
+    --color-fore-meta_h:        oklch( 48%   0   0);
+    --color-fore-meta_a:        oklch( 80%   0   0);
+    --color-fore-code:          oklch( 80%   0   0);
+    --color-fore-code-name:     oklch( 80%   0   0);
+    --color-fore-code-type:     oklch( 40%   0   0);
+    --color-fore-code-line:     oklch( 40%   0   0);
+    --color-fore-code-env:      oklch( 40%   0   0);
+    --color-fore-code-copy:     oklch( 80%   0   0);
+    --color-fore-code-copy_h:   oklch( 80%   0   0);
+    --color-fore-code-copy_a:   oklch( 80%   0   0);
+    --color-fore-table-head:    oklch( 88%   0   0);
+    --color-fore-table-body:    oklch( 80%   0   0);
+
+    --color-syntax-exec:        oklch( 80% 60%  20);
+    --color-syntax-file:        oklch( 80% 40%  70);
+    --color-syntax-path:        oklch( 80% 40% 100);
+    --color-syntax-key:         oklch( 80% 60% 260);
+    --color-syntax-flag:        oklch( 80% 60% 300);
+    --color-syntax-comment:     oklch( 52%   0   0);
+
+    --color-syntax-keyword:     oklch( 80% 60%  20);
+    --color-syntax-operator:    oklch( 80% 40%  40);
+    --color-syntax-string:      oklch( 80% 40% 100);
+    --color-syntax-entity:      oklch( 80% 40% 140);
+    --color-syntax-value:       oklch( 80% 20% 200);
+    --color-syntax-const:       oklch( 80% 60% 270);
+    --color-syntax-type:        oklch( 80% 40% 300);
+
+    --color-back-head:          oklch( 20%   0   0);
+    --color-back-html:          oklch( 12%   0   0);
+    --color-back-side:          oklch( 16%   0   0);
+    --color-back-main:          oklch( 12%   0   0);
+    --color-back-block:         oklch( 16%   0   0);
+    --color-back-code-head:     oklch( 24%   0   0);
+    --color-back-code-body:     oklch( 20%   0   0);
+    --color-back-code-copy:     oklch( 24%   0   0);
+    --color-back-code-copy_h:   oklch( 20%   0   0);
+    --color-back-code-copy_a:   oklch( 40%   0   0);
+    --color-back-table-head:    oklch( 24%   0   0);
+    --color-back-table-body:    oklch( 20%   0   0);
+    --color-back-table-none:    oklch( 16%   0   0);
+
+    --color-border-head:        oklch( 20%   0   0);
+    --color-border-block:       oklch( 20%   0   0);
+    --color-border-code-head:   oklch( 28%   0   0);
+    --color-border-code-body:   oklch( 22%   0   0);
+    --color-border-code-copy:   oklch( 28%   0   0);
+    --color-border-code-copy_h: oklch( 28%   0   0);
+    --color-border-code-copy_a: oklch( 28%   0   0);
+    --color-border-table:       oklch( 24%   0   0);
+
+    --colro-scroll-html:        oklch( 20%   0   0);
+    --colro-scroll-code:        oklch( 28%   0   0);
+}
+
+html, head {
+    height: 100%;
+}
+
+body {
+    position: relative; /* .overlay */
+    height: 100%;
+    font-family: var(--font-family-text);
+
+    color: #FF0000;
+    background-color: var(--color-back-html);
+}
+
+.overlay {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    backdrop-filter: brightness(25%);
+}
+
+.overlay.active {
+    display: block;
+}
+
+.layout {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: var(--size-header);
+    z-index: 4;
+
+    flex-flow: row nowrap;
+    justify-content: center;
+    line-height: var(--size-header);
+    font-size: 2rem;
+
+    background-color: var(--color-back-head);
+    border-bottom: 1px solid var(--color-border-head);
+}
+
+button.side-btn {
+    position: absolute;
+    display: none;
+    top: 0;
+    z-index: 5;
+    width: 3rem;
+    height: 3rem;
+
+    cursor: pointer;
+
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+button.side-btn.menu {
+    left: 0;
+}
+
+button.side-btn.nav {
+    right: 0;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: calc(100% - var(--size-header));
+
+    flex-flow: row nowrap;
+    justify-content: center;
+
+    overflow-y: auto;
+    scrollbar-color: var(--colro-scroll-html) var(--color-back-html);
+}
+
+.side {
+    position: fixed;
+    display: block;
+    width: var(--size-side);
+    height: 100%;
+    z-index: 3;
+    left: unset;
+    right: unset;
+
+    transition: margin 0.1s;
+
+    pointer-events: none;
+    background-color: var(--color-back-side);
+}
+
+menu {
+    margin-left: 0;
+    transform: translateX(
+        calc(var(--size-main) / (-2.0) - var(--size-side) / 2.0));
+}
+
+nav {
+    margin-right: 0;
+    transform: translateX(
+        calc(var(--size-main) / 2.0 + var(--size-side) / 2.0));
+}
+
+.content {
+    display: block;
+    width: var(--size-main);
+    height: max-content;
+    padding: 6rex;
+    padding-bottom: 50vh;
+
+    background-color: var(--color-back-main);
+}
+
+/*///////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////*/
+
+h1, h2, h3, h4 {
+    font-family: var(--font-family-head);
+}
+
+h1 {    
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+
+    color: var(--color-fore-head-1);
+}
+
+.block {
+    margin-bottom: 6rex;
+    padding: 3rex;
+
+    background-color: var(--color-back-block);
+    border: 1px solid var(--color-border-block);
+    border-radius: 1rex;
+}
+
+.block *:last-child {
+    margin-bottom: 0;
+}
+
+h2 {
+    margin-bottom: 3rex;
+
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 600;
+
+    color: var(--color-fore-head-2);
+}
+
+h3 {
+    margin-top: 3rex;
+    margin-bottom: 1.5rex;
+
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    font-weight: 500;
+
+    color: var(--color-fore-head-3);
+}
+
+h3:first-child {
+    margin-top: 0;
+}
+
+h4 {
+    margin-bottom: 0.5rex;
+
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    font-weight: 400;
+
+    color: var(--color-fore-head-4);
+}
+
+h2, h3, h4 {
+    cursor: pointer;
+}
+
+h2::before,
+h3::before,
+h4::before {
+    content: "#";
+    font-family: inherit;
+    margin-right: 0.5rex;
+
+    color: var(--color-fore-meta);
+}
+
+h2:hover::before,
+h3:hover::before,
+h4:hover::before {
+    color: var(--color-fore-meta_h);
+}
+
+h2:active::before,
+h3:active::before,
+h4:active::before {
+    color: var(--color-fore-meta_a);
+}
+
+p {
+    margin-bottom: 1.5rex;
+
+    font-size: 1rem;
+
+    color: var(--color-fore-text);
+}
+
+p.indent {
+    text-indent: 2rex;
+}
+
+
+
+code {
+    color: var(--color-fore-code);
+    font-family: var(--font-family-code);
+}
+
+code.inline {
+    font-size: 0.8rem;
+    padding: calc(0.25rem - 2px) 0.5rex;
+
+    background-color: var(--color-back-code-body);
+    border: 1px solid var(--color-border-code-body);
+    border-radius: 0.333rem;
+}
+
+
+
+.code-block {
+    margin-bottom: 1.5rex;
+
+    overflow: hidden;
+}
+
+.code-head {
+    position: relative;
+    display: flex;
+    height: 2rem;
+    padding: 0 0.5rem;
+
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    line-height: 2rem;
+
+    background-color: var(--color-back-code-head);
+    border: 1px solid var(--color-border-code-head);
+    border-top-left-radius: 1rex;
+    border-top-right-radius: 2rex; /*
+        специально много, тк видно через AA за button.copy */
+}
+
+.filepath {
+    font-family: var(--font-family-code);
+    cursor: pointer;
+    line-height: 2rem;
+
+    color: var(--color-fore-code);
+}
+
+.snippet-name {
+    color: var(--color-fore-code-name);
+    line-height: 2rem;
+}
+
+.code-type {
+    font-family: var(--font-family-code);
+    color: var(--color-fore-code-type);
+}
+
+.code-type.move {
+    transform: translateX(-2rem);
+}
+
+.code-block button.copy {
+    position: absolute;
+    display: block;
+    right: 0;
+    height: calc(2rem);
+    aspect-ratio: 1;
+    z-index: 1;
+    margin: -1px;
+
+    font-family: var(--font-family-symbols);
+    text-align: center;
+    line-height: 2rem;
+    cursor: pointer;
+
+    color: var(--color-fore-code-copy);
+    background-color: var(--color-back-code-copy);
+    border: 1px solid var(--color-border-code-copy);
+    border-radius: 0;
+    border-top-right-radius: 1rex;
+}
+
+.code-body {
+    display: flex;
+
+    flex-flow: row nowrap;
+    
+    background-color: var(--color-back-code-body);
+    border: 1px solid var(--color-border-code-body);
+    border-top: none;
+    border-bottom-left-radius: 1rex;
+    border-bottom-right-radius: 1rex;
+}
+
+.line-numbers {
+    display: flex;
+    padding: 0.5rex 0.5rex 0.5rex 1rex;
+    
+    flex-shrink: 0;
+    flex-flow: column nowrap;
+    align-items: end;
+
+    color:var(--color-fore-code-line);
+    border-right: 1px solid var(--color-border-code-body);
+}
+
+.line-numbers div {
+    font-size: 1rem;
+    font-family: var(--font-family-code);
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.line-content {
+    padding: 0.5rex 1rex 0.5rex 1rex;
+    
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #fff var(--color-back-code-body);
+}
+
+.line-numbers ~ .line-content {
+    padding: 0.5rex 1rex 0.5rex 0.5rex;
+}
+
+.line-content code {
+    display: block;
+    font-size: 1rem;
+    min-height: 1rem;
+
+    width: max-content;
+    white-space: pre;
+}
+
+
+
+.command {
+    position: relative;
+    display: flex;
+    margin-bottom: 1.5rex;
+
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    background-color: var(--color-back-code-body);
+    border: 1px solid var(--color-border-code-body);
+    border-radius: 0.5rem;
+    border-collapse: collapse;
+}
+
+.command .text {
+    display: flex;
+    padding: 0.5rex 1rex;
+
+    flex-flow: row nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-color: var(--colro-scroll-code) var(--color-back-code-body);
+    scrollbar-width: thin;
+}
+
+.env {
+    margin-right: 0.5rex;
+
+    font-size: 1rem;
+    font-family: var(--font-family-code);
+    flex-shrink: 0;
+
+    user-select: none;
+    pointer-events: none;
+
+    color: var(--color-fore-code-env);
+}
+
+.command code {
+    font-size: 1rem;
+    white-space: pre;
+}
+
+.command button.copy {
+    width: 2rem;
+    height: 2rem;
+    margin: -1px;
+    z-index: 1;
+
+    flex-shrink: 0;
+    font-family: var(--font-family-symbols);
+    text-align: center;
+    text-align: center;
+    line-height: 100%;
+    cursor: pointer;
+
+    color: var(--color-fore-code-copy);
+    background-color: var(--color-back-code-head);
+    border: none;
+    border: 1px solid var(--color-border-code-copy);
+    border-radius: calc(0.5rem - 1px);
+    box-sizing: border-box;
+}
+
+button.copy:hover {
+    color: var(--color-fore-code-copy);
+    background-color: var(--color-back-code-copy_h);
+    border-color: var(--color-border-code-copy_h);
+}
+
+button.copy:active {
+    color: var(--color-fore-code-copy);
+    background-color: var(--color-back-code-copy_a);
+    border-color: var(--color-border-code-copy_a);
+}
+
+
+
+ex, pa, fi, ke, fl, co {
+    display: inline;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* PROG LANG */
+kw { color: var(--color-syntax-keyword); }
+op { color: var(--color-syntax-operator); }
+st { color: var(--color-syntax-string); }
+nt { color: var(--color-syntax-entity); }
+va { color: var(--color-syntax-value); }
+cn { color: var(--color-syntax-const); }
+ty { color: var(--color-syntax-type); }
+
+/* SHELL */
+ex { color: var(--color-syntax-exec); }
+fi { color: var(--color-syntax-file); }
+pa { color: var(--color-syntax-path); }
+ke { color: var(--color-syntax-key); }
+fl { color: var(--color-syntax-flag); }
+cm { color: var(--color-syntax-comment); font-style: italic; }
+
+
+co { color: var(--color-syntax-comment); }
+
+
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background-color: var(--color-back-table-none);
+    overflow: hidden;
+}
+
+th, td {
+    padding: 0 1rex;
+
+    line-height: 2rem;
+    min-width: 1.5rem;
+    text-align: center;
+    border: 1px solid var(--color-border-table);
+}
+
+th {
+    color: var(--color-fore-table-head);
+    background-color: var(--color-back-table-head);
+}
+
+td {
+    font-family: var(--font-family-serif);
+    font-weight: 500;
+
+    color: var(--color-fore-table-body);
+    background-color: var(--color-back-table-body);
+}
+
+div[level] { padding-left: 2rex; }
+
+@media (width <= 180rex) {
+    :root {
+        --color-fore-head-1: #f0f;
+    }
+
+    button.side-btn {
+        display: block;
+    }
+
+    .side {
+        transform: none;
+        transition: left 0.1s;
+
+        pointer-events: all;
+    }
+
+    menu.side {
+        left: calc(-1.0 * var(--size-side));
+    }
+
+    menu.side.active {
+        left: 0;
+    }
+
+    nav.side {
+        right: calc(-1.0 * var(--size-side));
+    }
+
+    nav.side.active {
+        right: 0;
+    }
+}
+
+@media (width <= 120rex) {
+    :root {
+        --color-fore-head-1: #0ff;
+    }
+
+    .content {
+        padding: 1rex;
+    }
+
+    .block {
+        padding: 1rex;
+    }
+
+    h2 {
+        margin-bottom: 1rex;
+    }
+}

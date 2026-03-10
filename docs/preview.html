@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AchiDocs Установка</title>
+        <link rel="stylesheet" href="../src/docs2.css">
+    </head>
+    <body>
+        <div class="overlay" onclick="hideOverlay()"></div>
+        
+        <div class="layout">
+            <header onclick="hideOverlay()">
+                <h1>Установка ArchLinux</h1>
+            </header>
+            <main>
+                <menu class="side">
+                </menu>
+                <div class="content">
+                    <button class="side-btn menu"
+                        onclick="toggleMenu()">
+                    </button>
+                    <button class="side-btn nav"
+                        onclick="toggleNav()">
+                    </button>
+
+                    <!-- 
+
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="snippet-name">...</div>
+                                <div class="code-type move">type</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-content">
+                                    <code>...</code>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="filepath"><span class="path">/path/to/</span><span class="file">file</span></div>
+                                <div class="code-type move">type</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-numbers">
+                                    <div>1</div>
+                                </div>
+                                <div class="line-content">
+                                    <code>...</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code>...</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    
+                    -->
+                    
+                    <h2>Theme</h2>
+
+                    <div class="block">
+                        <h3>Code</h3>
+
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="snippet-name">...</div>
+                                <div class="code-type move">type</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-content">
+                                    <code>...</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2>Theme</h2>
+
+                    <div class="block">
+                        <h3>Snippet</h3>
+
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="filepath"><span class="path">/path/to/</span><span class="file">file</span></div>
+                                <div class="code-type move">type</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-numbers">
+                                    <div>1</div>
+                                </div>
+                                <div class="line-content">
+                                    <code>...</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2>Theme</h2>
+
+                    <div class="block">
+                        <h3>Command</h3>
+
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code>...</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+                    
+                    <h2>Theme</h2>
+
+                    <div class="block">
+                        <h3>Code</h3>
+
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="snippet-name">...</div>
+                                <div class="code-type move">type</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-content">
+                                    <code>...</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2>Theme</h2>
+
+                    <div class="block">
+                        <h3>Snippet</h3>
+
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="filepath"><span class="path">/path/to/</span><span class="file">file</span></div>
+                                <div class="code-type move">type</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-numbers">
+                                    <div>1</div>
+                                </div>
+                                <div class="line-content">
+                                    <code>...</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2>Theme</h2>
+
+                    <div class="block">
+                        <h3>Command</h3>
+
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code>...</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+                </div>
+                <nav class="side">
+                </nav>
+            </main>
+        </div>
+        
+        <script>
+            const menu = document.querySelector("menu");
+            const nav = document.querySelector("nav");
+            const overlay = document.querySelector(".overlay");
+
+            function toggleMenu() {
+                if (menu.classList.contains("active")) {
+                    hideOverlay();
+                }
+                else {
+                    menu.classList.add("active");
+                    showOverlay();
+                }
+            }
+
+            function toggleNav() {
+                if (nav.classList.contains("active")) {
+                    hideOverlay();
+                }
+                else {
+                    nav.classList.add("active");
+                    showOverlay();
+                }
+            }
+
+            function showOverlay() {
+                overlay.classList.add("active");
+            }
+
+            function hideOverlay() {
+                overlay.classList.remove("active");
+                menu.classList.remove("active");
+                nav.classList.remove("active");
+            }
+        </script>
+    </body>
+</html>
