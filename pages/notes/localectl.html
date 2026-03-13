@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>AchiDocs localectl</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../src/style/root.css">
+        <link rel="stylesheet" href="../../src/style/pages.css">
+    </head>
+    <body>
+        <div class="overlay" onclick="hideOverlay()"></div>
+        
+        <div class="layout">
+            <header onclick="hideOverlay()">
+                <h1><a href="../../index.html">localectl</a></h1>
+            </header>
+            <main>
+                <menu class="side">
+                </menu>
+                <div class="content">
+                    <button class="side-btn menu"
+                        onclick="toggleMenu()">
+                    </button>
+                    <button class="side-btn nav"
+                        onclick="toggleNav()">
+                    </button>
+
+                    <div class="block">
+                        <h3>localectl</h3>
+                        <p>Утилита systemd для управления системной локалью и раскладкой клавиатуры. Работает как в установленной системе, так и в live-окружении (частично).</p>
+
+                        <h3>Доступные локали</h3>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>localectl</exe> <cmd>list-locales</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <p class="comment">Отфильтровать — найти раскладки, содержащие <str>"ru"</str>:</p>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>localectl</exe> <cmd>list-locales</cmd> <opr>|</opr> <exe>grep</exe> <str>ru</str></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <p class="comment">Установка локали:</p>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>localectl</exe> <cmd>set-locale</cmd> LANG=en_US.UTF-8 LANGUAGE=en_US:en:C</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <p class="warn"><code class="inline"><exe>localectl</exe> <cmd>set-locale</cmd></code> не сработает в chroot</p>
+                    </div>
+                    
+                    <div class="block">
+                        <h3>Пути по умолчанию:</h3>
+                        <div class="scroll-domain">
+                            <table>
+                                <tbody>
+                                    <tr><td><code><pat>/etc/</pat><fil>locale.conf</fil></code></td><td>Системная локаль (LANG=, LANGUAGE=, LC_*) text text text text</td></tr>
+                                    <tr><td><code><pat>/etc/</pat><fil>vconsole.conf</fil></code></td><td>Раскладка и шрифт для tty (KEYMAP=, FONT=)</td></tr>
+                                    <tr><td><code><pat>/etc/</pat><fil>locale.gen</fil></code></td><td>Список локалей для генерации</td></tr>
+                                    <tr><td><code><pat>/usr/share/i18n/locales/</pat></code></td><td>Исходники всех локалей</td></tr>
+                                    <tr><td><code><pat>/usr/share/i18n/charmaps/</pat></code></td><td>Кодировки (UTF-8, KOI8-R и т.д.)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <h3>Ссылки</h3>
+                        <div class="links">
+                            <a href="../dots.html#vconsole_conf">vconsole.conf</a>
+                            <a href="https://www.man7.org/linux/man-pages/man1/localectl.1.html" target="_blank" class="external">localectl(1) — Linux manual page</a>
+                        </div>
+                    </div>
+                </div>
+                <nav class="side">
+                </nav>
+            </main>
+        </div>
+    </body>
+</html>

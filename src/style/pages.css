@@ -1,140 +1,11 @@
-@font-face {
-    font-family: "Noto Sans";
-    src: url("../fonts/NotoSans-Regular.ttf");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    src: url("../fonts/NotoSans-Medium.ttf");
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    src: url("../fonts/NotoSans-Bold.ttf");
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("../fonts/JetBrainsMono-Regular.ttf");
-    font-style: normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("../fonts/JetBrainsMono-Medium.ttf");
-    font-style: normal;
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("../fonts/JetBrainsMono-Italic.ttf");
-    font-style: italic;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "Bitter";
-    src: url("../fonts/Bitter-VariableFont_wght.ttf");
-}
-
-@font-face {
-    font-family: "Symbols NerdFont Mono";
-    src: url("../fonts/SymbolsNerdFontMono-Regular.ttf");
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/*
-    --category[-subcategory]-style[-parents][_mode]
-*/
-
-:root {
-    --font-family-head:       "Noto Sans";
-    --font-family-text:       "Noto Sans";
-    --font-family-serif:      "Bitter";
-    --font-family-code:       "JetBrains Mono";
-    --font-family-symbols:    "Symbols NerdFont Mono";
-
-    --size-header:            3rem;
-    --size-side:              30rex;
-    --size-main:              120rex;
-
-    --color-fore-head-1:        oklch( 92%   0   0);
-    --color-fore-head-2:        oklch( 80%   0   0);
-    --color-fore-head-3:        oklch( 84%   0   0);
-    --color-fore-head-4:        oklch( 88%   0   0);
-    --color-fore-text:          oklch( 80%   0   0);
-    --color-fore-meta:          oklch( 40%   0   0);
-    --color-fore-meta_h:        oklch( 48%   0   0);
-    --color-fore-meta_a:        oklch( 80%   0   0);
-    --color-fore-code:          oklch( 80%   0   0);
-    --color-fore-code-name:     oklch( 80%   0   0);
-    --color-fore-code-type:     oklch( 40%   0   0);
-    --color-fore-code-line:     oklch( 40%   0   0);
-    --color-fore-code-env:      oklch( 40%   0   0);
-    --color-fore-code-copy:     oklch( 80%   0   0);
-    --color-fore-code-copy_h:   oklch( 80%   0   0);
-    --color-fore-code-copy_a:   oklch( 80%   0   0);
-    --color-fore-table-head:    oklch( 88%   0   0);
-    --color-fore-table-body:    oklch( 80%   0   0);
-
-    --color-syntax-exec:        oklch( 80% 60%  20);
-    --color-syntax-file:        oklch( 80% 40%  70);
-    --color-syntax-path:        oklch( 80% 40% 100);
-    --color-syntax-key:         oklch( 80% 60% 260);
-    --color-syntax-flag:        oklch( 80% 60% 300);
-    --color-syntax-comment:     oklch( 52%   0   0);
-
-    --color-syntax-keyword:     oklch( 80% 60%  20);
-    --color-syntax-operator:    oklch( 80% 40%  40);
-    --color-syntax-string:      oklch( 80% 40% 100);
-    --color-syntax-entity:      oklch( 80% 40% 140);
-    --color-syntax-value:       oklch( 80% 20% 200);
-    --color-syntax-const:       oklch( 80% 60% 270);
-    --color-syntax-type:        oklch( 80% 40% 300);
-
-    --color-back-head:          oklch( 20%   0   0);
-    --color-back-html:          oklch( 12%   0   0);
-    --color-back-side:          oklch( 16%   0   0);
-    --color-back-main:          oklch( 12%   0   0);
-    --color-back-block:         oklch( 16%   0   0);
-    --color-back-code-head:     oklch( 24%   0   0);
-    --color-back-code-body:     oklch( 20%   0   0);
-    --color-back-code-copy:     oklch( 24%   0   0);
-    --color-back-code-copy_h:   oklch( 20%   0   0);
-    --color-back-code-copy_a:   oklch( 40%   0   0);
-    --color-back-table-head:    oklch( 24%   0   0);
-    --color-back-table-body:    oklch( 20%   0   0);
-    --color-back-table-none:    oklch( 16%   0   0);
-
-    --color-border-head:        oklch( 20%   0   0);
-    --color-border-block:       oklch( 20%   0   0);
-    --color-border-code-head:   oklch( 28%   0   0);
-    --color-border-code-body:   oklch( 22%   0   0);
-    --color-border-code-copy:   oklch( 28%   0   0);
-    --color-border-code-copy_h: oklch( 28%   0   0);
-    --color-border-code-copy_a: oklch( 28%   0   0);
-    --color-border-table:       oklch( 24%   0   0);
-
-    --colro-scroll-html:        oklch( 20%   0   0);
-    --colro-scroll-code:        oklch( 28%   0   0);
-}
-
 html, head {
+    width: 100%;
     height: 100%;
 }
 
 body {
     position: relative; /* .overlay */
+    width: 100%;
     height: 100%;
     font-family: var(--font-family-text);
 
@@ -212,7 +83,7 @@ main {
     justify-content: center;
 
     overflow-y: auto;
-    scrollbar-color: var(--colro-scroll-html) var(--color-back-html);
+    scrollbar-color: var(--color-scroll-html) var(--color-back-html);
 }
 
 .side {
@@ -246,7 +117,7 @@ nav {
     display: block;
     width: var(--size-main);
     height: max-content;
-    padding: 6rex;
+    padding: 6rch;
     padding-bottom: 50vh;
 
     background-color: var(--color-back-main);
@@ -268,13 +139,22 @@ h1 {
     color: var(--color-fore-head-1);
 }
 
+h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1:hover {
+    color: var(--color-fore-head-1_h);
+}
+
 .block {
-    margin-bottom: 6rex;
-    padding: 3rex;
+    margin-bottom: 6rch;
+    padding: 3rch;
 
     background-color: var(--color-back-block);
     border: 1px solid var(--color-border-block);
-    border-radius: 1rex;
+    border-radius: 1rch;
 }
 
 .block *:last-child {
@@ -282,7 +162,7 @@ h1 {
 }
 
 h2 {
-    margin-bottom: 3rex;
+    margin-bottom: 3rch;
 
     font-size: 2rem;
     line-height: 2rem;
@@ -292,8 +172,8 @@ h2 {
 }
 
 h3 {
-    margin-top: 3rex;
-    margin-bottom: 1.5rex;
+    margin-top: 3rch;
+    margin-bottom: 1.5rch;
 
     font-size: 1.6rem;
     line-height: 1.6rem;
@@ -307,7 +187,7 @@ h3:first-child {
 }
 
 h4 {
-    margin-bottom: 0.5rex;
+    margin-bottom: 1rch;
 
     font-size: 1.2rem;
     line-height: 1.2rem;
@@ -316,42 +196,122 @@ h4 {
     color: var(--color-fore-head-4);
 }
 
-h2, h3, h4 {
+h2, h3 {
     cursor: pointer;
 }
 
 h2::before,
-h3::before,
-h4::before {
+h3::before {
     content: "#";
     font-family: inherit;
-    margin-right: 0.5rex;
+    margin-right: 0.5rch;
 
     color: var(--color-fore-meta);
 }
 
 h2:hover::before,
-h3:hover::before,
-h4:hover::before {
+h3:hover::before {
     color: var(--color-fore-meta_h);
 }
 
 h2:active::before,
-h3:active::before,
-h4:active::before {
+h3:active::before {
     color: var(--color-fore-meta_a);
 }
 
 p {
-    margin-bottom: 1.5rex;
+    margin-bottom: 1.5rch;
 
     font-size: 1rem;
 
     color: var(--color-fore-text);
 }
 
+p.comment {
+    margin-bottom: 0.5rch;
+}
+
 p.indent {
-    text-indent: 2rex;
+    text-indent: 2rch;
+}
+
+.links {
+    display: flex;
+    margin-bottom: 1.5rch;
+
+    flex-flow: row wrap;
+}
+
+main a {
+    display: inline-block;
+    margin: 0 0.5rch;
+    padding: 0 0.75rch;
+    
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+    font-family: var(--font-family-link);
+    font-weight: 500;
+    text-decoration: none;
+    
+    color : var(--color-fore-link);
+    background-color: var(--color-back-link);
+    border: 1px solid var(--color-border-link);
+    border-radius: 0.8rch;
+}
+
+main a:first-child { margin-left: 0; }
+main a:last-child { margin-right: 0; }
+
+main a::before {
+    display: inline-block;
+    margin-right: 0.5rch;
+    transform: translateY(-0.05rem);
+
+    content: "";
+    user-select: none;
+    font-size: 0.6rem;
+    line-height: 0rem;
+
+    font-family: var(--font-family-symbols);
+}
+
+main a.external::before {
+    content: "";
+}
+
+main a:hover {
+    color: var(--color-fore-link_h);
+    background-color: var(--color-back-link_h);
+    border-color: var(--color-border-link_h);
+}
+
+main a.external,
+main a:visited {
+    color: var(--color-fore-link_v);
+    background-color: var(--color-back-link_v);
+    border-color: var(--color-border-link_v);
+}
+
+main a.external:hover,
+main a:visited:hover {
+    color: var(--color-fore-link_hv);
+    background-color: var(--color-back-link_hv);
+    border-color: var(--color-border-link_hv);
+}
+
+ul {
+    margin-bottom: 1.5rch;
+    padding-left: 1rem;
+}
+
+li {
+    color: var(--color-fore-text);
+}
+
+li::marker {
+    font-family: var(--font-family-symbols);
+    color: var(--color-fore-marker);
+    content: "";
 }
 
 
@@ -363,7 +323,7 @@ code {
 
 code.inline {
     font-size: 0.8rem;
-    padding: calc(0.25rem - 2px) 0.5rex;
+    padding: calc(0.25rem - 2px) 0.5rch;
 
     background-color: var(--color-back-code-body);
     border: 1px solid var(--color-border-code-body);
@@ -373,7 +333,7 @@ code.inline {
 
 
 .code-block {
-    margin-bottom: 1.5rex;
+    margin-bottom: 1.5rch;
 
     overflow: hidden;
 }
@@ -390,8 +350,8 @@ code.inline {
 
     background-color: var(--color-back-code-head);
     border: 1px solid var(--color-border-code-head);
-    border-top-left-radius: 1rex;
-    border-top-right-radius: 2rex; /*
+    border-top-left-radius: 1rch;
+    border-top-right-radius: 2rch; /*
         специально много, тк видно через AA за button.copy */
 }
 
@@ -404,7 +364,7 @@ code.inline {
 }
 
 .snippet-name {
-    color: var(--color-fore-code-name);
+    color: var(--color-fore-code-head);
     line-height: 2rem;
 }
 
@@ -435,57 +395,67 @@ code.inline {
     background-color: var(--color-back-code-copy);
     border: 1px solid var(--color-border-code-copy);
     border-radius: 0;
-    border-top-right-radius: 1rex;
+    border-top-right-radius: 1rch;
 }
 
 .code-body {
     display: flex;
 
     flex-flow: row nowrap;
+    overflow: hidden;
     
     background-color: var(--color-back-code-body);
     border: 1px solid var(--color-border-code-body);
     border-top: none;
-    border-bottom-left-radius: 1rex;
-    border-bottom-right-radius: 1rex;
+    border-bottom-left-radius: 1rch;
+    border-bottom-right-radius: 1rch;
 }
 
 .line-numbers {
     display: flex;
-    padding: 0.5rex 0.5rex 0.5rex 1rex;
+    padding: 0.5rem 0.5rch 0.5rem 1rch;
     
     flex-shrink: 0;
     flex-flow: column nowrap;
     align-items: end;
 
-    color:var(--color-fore-code-line);
+    color: var(--color-fore-code-line);
     border-right: 1px solid var(--color-border-code-body);
 }
 
 .line-numbers div {
+    display: inline-block;
     font-size: 1rem;
     font-family: var(--font-family-code);
+
+    font-size: 1rem;
+    line-height: 1.3rem;
+    height: 1.3rem;
 
     user-select: none;
     pointer-events: none;
 }
 
 .line-content {
-    padding: 0.5rex 1rex 0.5rex 1rex;
+    display: flex;
+    padding: 0.5rem 1rch 0.5rch 1rch;
     
+    flex-flow: column nowrap;
     overflow-x: auto;
     scrollbar-width: thin;
-    scrollbar-color: #fff var(--color-back-code-body);
+    scrollbar-color: var(--color-scroll-code) var(--color-back-code-body);
 }
 
 .line-numbers ~ .line-content {
-    padding: 0.5rex 1rex 0.5rex 0.5rex;
+    padding-left: 0.5rch;
 }
 
 .line-content code {
-    display: block;
+    display: inline-block;
+
     font-size: 1rem;
-    min-height: 1rem;
+    line-height: 1.3rem;
+    height: 1.3rem;
 
     width: max-content;
     white-space: pre;
@@ -496,7 +466,7 @@ code.inline {
 .command {
     position: relative;
     display: flex;
-    margin-bottom: 1.5rex;
+    margin-bottom: 1.5rch;
 
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -509,17 +479,17 @@ code.inline {
 
 .command .text {
     display: flex;
-    padding: 0.5rex 1rex;
+    padding: 0.5rch 1rch;
 
     flex-flow: row nowrap;
     overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-color: var(--colro-scroll-code) var(--color-back-code-body);
+    scrollbar-color: var(--color-scroll-code) var(--color-back-code-body);
     scrollbar-width: thin;
 }
 
 .env {
-    margin-right: 0.5rex;
+    margin-right: 0.5rch;
 
     font-size: 1rem;
     font-family: var(--font-family-code);
@@ -571,34 +541,59 @@ button.copy:active {
 
 
 
-ex, pa, fi, ke, fl, co {
+@keyframes variable-phase {
+    0%, 100% {
+        color: color-mix(in srgb, var(--color-syntax-variable), transparent  0%);
+    }
+    50% {
+        color: color-mix(in srgb, var(--color-syntax-variable), transparent 50%);
+    }
+}
+
+exe, fil, pat, str, esc, cmd, flg, opr, cnt, com, var {
     display: inline;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+    white-space: inherit;
 }
 
-/* PROG LANG */
-kw { color: var(--color-syntax-keyword); }
-op { color: var(--color-syntax-operator); }
-st { color: var(--color-syntax-string); }
-nt { color: var(--color-syntax-entity); }
-va { color: var(--color-syntax-value); }
-cn { color: var(--color-syntax-const); }
-ty { color: var(--color-syntax-type); }
+exe { color: var(--color-syntax-exec); }
+fil { color: var(--color-syntax-file); }
+pat { color: var(--color-syntax-path); }
+str { color: var(--color-syntax-string); }
+esc { color: var(--color-syntax-escape); }
+cmd { color: var(--color-syntax-command); }
+flg { color: var(--color-syntax-flag); }
+opr { color: var(--color-syntax-operator); }
+cnt { color: var(--color-syntax-const); }
 
-/* SHELL */
-ex { color: var(--color-syntax-exec); }
-fi { color: var(--color-syntax-file); }
-pa { color: var(--color-syntax-path); }
-ke { color: var(--color-syntax-key); }
-fl { color: var(--color-syntax-flag); }
-cm { color: var(--color-syntax-comment); font-style: italic; }
+com {
+    color: var(--color-syntax-comment);
+    font-style: italic;
+}
+
+var {
+    color: var(--color-syntax-variable);
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: var(--color-syntax-variable);
+    animation: variable-phase 2s ease infinite;
+}
+
+.filepath fil,
+.filepath pat {
+    color: var(--color-fore-code-head);
+}
 
 
-co { color: var(--color-syntax-comment); }
 
+.scroll-domain {
+    margin-bottom: 1.5rch;
 
+    overflow-x: auto;
+    scrollbar-color: var(--color-scroll-table) var(--color-back-table-body);
+}
 
 table {
     width: 100%;
@@ -609,12 +604,15 @@ table {
     overflow: hidden;
 }
 
-th, td {
-    padding: 0 1rex;
+th,
+td {
+    padding: 0.5rch 1rch;
+
+    white-space: nowrap;
+    word-wrap: none;
 
     line-height: 2rem;
     min-width: 1.5rem;
-    text-align: center;
     border: 1px solid var(--color-border-table);
 }
 
@@ -624,18 +622,22 @@ th {
 }
 
 td {
-    font-family: var(--font-family-serif);
     font-weight: 500;
 
     color: var(--color-fore-table-body);
     background-color: var(--color-back-table-body);
 }
 
-div[level] { padding-left: 2rex; }
+.rj { text-align: right; }
+.cj { text-align: center; }
+.lj { text-align: left; }
 
-@media (width <= 180rex) {
-    :root {
-        --color-fore-head-1: #f0f;
+div[level] { padding-left: 2rch; }
+
+@media (width < 90rem) {
+    .content {
+        max-width: var(--size-main);
+        padding: 1rch;
     }
 
     button.side-btn {
@@ -666,20 +668,37 @@ div[level] { padding-left: 2rex; }
     }
 }
 
-@media (width <= 120rex) {
-    :root {
-        --color-fore-head-1: #0ff;
+@media (width < 60rem) {
+    main {
+        display: block;
     }
 
     .content {
-        padding: 1rex;
+        width: 100%;
+    }
+    
+    .block {
+        margin-bottom: 3rch;
+        padding: 1rch;
     }
 
-    .block {
-        padding: 1rex;
+    h1 {
+        font-size: 1.5rem;
     }
 
     h2 {
-        margin-bottom: 1rex;
+        font-size: 1.4rem;
+        margin-bottom: 1rch;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        margin-top: 2rch;
+    }
+
+    th,
+    td {
+        font-size: 0.8rem;
+        line-height: 1.2rem;
     }
 }

@@ -1,3 +1,0 @@
-const packages = [
-    { "name": "", "desc": "" }
-]

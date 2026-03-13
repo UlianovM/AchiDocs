@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AchiDocs Home</title>
-        <script src="./src/theme.js"></script>
-        <link rel="stylesheet" href="./src/index.css">
+        <title>AchiDocs Главная</title>
+        <link rel="stylesheet" href="src/style/root.css">
+        <link rel="stylesheet" href="src/style/index.css">
     </head>
     <body>
-        <h1>AchiDocs</h1>
+        <header>
+            <h1>AchiDocs</h1>
+        </header>
         <main>
-            <div class="content">
-                <a href="./docs/install.html"><h2 class="block">Установка ArchLinux</h2></a>
-                <a href="./docs/hyprland.html"><h2 class="block">Настройка Hyprland</h2></a>
+            <div class="block">
+                <a class="item manual" href="./pages/guides/install.html">Установка ArchLinux</a>
+                <a class="item" href="./pages/dots.html">dots</a>
+                <a class="item" href="./pages/notes/localectl.html">localectl</a>
+                <a class="item" href="./pages/notes/setfont.html">setfont</a>
             </div>
         </main>
     </body>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>AchiDocs setfont</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../src/style/root.css">
+        <link rel="stylesheet" href="../../src/style/pages.css">
+    </head>
+    <body>
+        <div class="overlay" onclick="hideOverlay()"></div>
+        
+        <div class="layout">
+            <header onclick="hideOverlay()">
+                <h1><a href="../../index.html">setfont</a></h1>
+            </header>
+            <main>
+                <menu class="side">
+                </menu>
+                <div class="content">
+                    <button class="side-btn menu"
+                        onclick="toggleMenu()">
+                    </button>
+                    <button class="side-btn nav"
+                        onclick="toggleNav()">
+                    </button>
+
+                    <div class="block">
+                        <h3>setfont</h3>
+                        <p>Утилита из пакета kbd для смены шрифта в виртуальной консоли (tty1–tty6)</p>
+                        <p class="note">На графическое окружение (DE, терминальные эмуляторы) не влияет вовсе</p>
+                    
+                        <h3>Установка шрифта</h3>
+                        <p class="comment">Установка шрифта с поддержкой кириллицы</p>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>setfont</exe> cyr-sun16</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <p class="comment">Установка шрифта по умолчанию</p>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>setfont</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <h3>Доступные шрифты</h3>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>ls</exe> <pat>/usr/share/kbd/consolefonts/</pat></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+                </div>
+                <nav class="side">
+                </nav>
+            </main>
+        </div>
+    </body>
+</html>

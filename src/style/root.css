@@ -1,0 +1,151 @@
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../fonts/NotoSans-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../fonts/NotoSans-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../fonts/NotoSans-Bold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/JetBrainsMono-Regular.ttf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/JetBrainsMono-Medium.ttf");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/JetBrainsMono-Italic.ttf");
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Bitter";
+    src: url("../fonts/Bitter-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Symbols NerdFont Mono";
+    src: url("../fonts/SymbolsNerdFontMono-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    --category[-subcategory]-style[-parents][_mode]
+*/
+
+:root {
+    --font-family-head:       "Noto Sans";
+    --font-family-text:       "Noto Sans";
+    --font-family-link:       "Bitter";
+    --font-family-code:       "JetBrains Mono";
+    --font-family-symbols:    "Symbols NerdFont Mono";
+
+    --size-header:            3rem;
+    --size-side:              20rem;
+    --size-main:              60rem;
+
+    --color-fore-item:          oklch( 80%   0   0);
+    --color-fore-item_h:        oklch( 88%   0   0);
+    --color-fore-item_a:        oklch(100%   0   0);
+    --color-fore-head-1:        oklch( 60%   0   0);
+    --color-fore-head-1_h:      oklch( 80%   0   0);
+    --color-fore-head-2:        oklch( 80%   0   0);
+    --color-fore-head-3:        oklch( 84%   0   0);
+    --color-fore-head-4:        oklch( 88%   0   0);
+    --color-fore-text:          oklch( 80%   0   0);
+    --color-fore-link:          oklch( 60% 20% 280);
+    --color-fore-link_h:        oklch( 80% 20% 280);
+    --color-fore-link_v:        oklch( 60%   0   0);
+    --color-fore-link_hv:       oklch( 80%   0   0);
+    --color-fore-marker:        oklch( 40%   0   0);
+    --color-fore-meta:          oklch( 40%   0   0);
+    --color-fore-meta_h:        oklch( 48%   0   0);
+    --color-fore-meta_a:        oklch( 80%   0   0);
+    --color-fore-code:          oklch( 80%   0   0);
+    --color-fore-code-head:     oklch( 60%   0   0);
+    --color-fore-code-type:     oklch( 40%   0   0);
+    --color-fore-code-line:     oklch( 40%   0   0);
+    --color-fore-code-env:      oklch( 40%   0   0);
+    --color-fore-code-copy:     oklch( 80%   0   0);
+    --color-fore-code-copy_h:   oklch( 80%   0   0);
+    --color-fore-code-copy_a:   oklch( 80%   0   0);
+    --color-fore-table-head:    oklch( 88%   0   0);
+    --color-fore-table-body:    oklch( 80%   0   0);
+    
+    --color-syntax-exec:        #DCDCAA;
+    --color-syntax-file:        #CE9178;
+    --color-syntax-path:        #CE9178;
+    --color-syntax-string:      #CE9178;
+    --color-syntax-escape:      #D16969;
+    --color-syntax-command:     #569CD6;
+    --color-syntax-flag:        #569CD6;
+    --color-syntax-operator:    #D16969;
+    --color-syntax-const:       #9CDCFE;
+    --color-syntax-comment:     oklch( 48%   0   0);
+    --color-syntax-variable:    oklch( 48%   0   0);
+
+    --color-back-item:          oklch( 18%   0   0);
+    --color-back-item_h:        oklch( 22%   0   0);
+    --color-back-item_a:        oklch( 40%   0   0);
+    --color-back-head:          oklch( 20%   0   0);
+    --color-back-html:          oklch( 12%   0   0);
+    --color-back-side:          oklch( 16%   0   0);
+    --color-back-main:          oklch( 16%   0   0);
+    --color-back-block:         oklch( 20%   0   0);
+    --color-back-link:          oklch( 24%  5% 280);
+    --color-back-link_h:        oklch( 28%  5% 280);
+    --color-back-link_v:        oklch( 24%   0   0);
+    --color-back-link_hv:       oklch( 28%   0   0);
+    --color-back-code-head:     oklch( 24%   0   0);
+    --color-back-code-body:     oklch( 16%   0   0);
+    --color-back-code-copy:     oklch( 24%   0   0);
+    --color-back-code-copy_h:   oklch( 20%   0   0);
+    --color-back-code-copy_a:   oklch( 40%   0   0);
+    --color-back-table-head:    oklch( 26%   0   0);
+    --color-back-table-body:    oklch( 22%   0   0);
+    --color-back-table-none:    oklch( 16%   0   0);
+
+    --color-border-item:        oklch( 20%   0   0);
+    --color-border-item_h:      oklch( 26%   0   0);
+    --color-border-item_a:      oklch( 44%   0   0);
+    --color-border-head:        oklch( 22%   0   0);
+    --color-border-block:       oklch( 22%   0   0);
+    --color-border-link:        oklch( 28%  5% 280);
+    --color-border-link_h:      oklch( 32%  5% 280);
+    --color-border-link_v:      oklch( 28%   0   0);
+    --color-border-link_hv:     oklch( 32%   0   0);
+    --color-border-code-head:   oklch( 28%   0   0);
+    --color-border-code-body:   oklch( 24%   0   0);
+    --color-border-code-copy:   oklch( 28%   0   0);
+    --color-border-code-copy_h: oklch( 28%   0   0);
+    --color-border-code-copy_a: oklch( 28%   0   0);
+    --color-border-table:       oklch( 24%   0   0);
+
+    --color-scroll-html:        oklch( 20%   0   0);
+    --color-scroll-code:        oklch( 28%   0   0);
+    --color-scroll-table:       oklch( 28%   0   0);
+}

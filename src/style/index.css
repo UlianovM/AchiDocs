@@ -1,0 +1,125 @@
+html, head {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-family-text);
+
+    flex-flow: column nowrap;
+    align-items: center;
+
+    color: #FF0000;
+    background-color: var(--color-back-html);
+}
+
+header {
+    display: inline-block;
+    width: 100%;
+    height: var(--size-header);
+    
+    flex-flow: row nowrap;
+    flex-shrink: 0;
+    justify-content: center;
+    line-height: var(--size-header);
+    font-size: 2rem;
+
+    background-color: var(--color-back-head);
+    border-bottom: 1px solid var(--color-border-head);
+}
+
+main {
+    display: block;
+    width: 100%;
+    max-width: 60rem;
+    height: calc(100% - var(--size-header));
+    padding: 6rch;
+    padding-bottom: 50vh;
+
+    scrollbar-color: var(--colro-scroll-html) var(--color-back-html);
+    background-color: var(--color-back-main);
+}
+
+
+
+
+
+h1, h2, h3, h4 {
+    font-family: var(--font-family-head);
+}
+
+h1 {    
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+
+    color: var(--color-fore-head-1);
+}
+
+.block {
+    display: block;
+}
+
+.item {
+    display: block;
+    height: 3rem;
+    margin-bottom: 1.5rch;
+    padding: 0 1.5rch;
+
+    line-height: calc(2rem + 1rcap);
+    font-size: 1.4rem;
+    text-decoration: none;
+
+    color: var(--color-fore-item);
+    background-color: var(--color-back-item);
+    border: 1px solid var(--color-border-item);
+    border-radius: 1rch;
+}
+
+.item:hover {
+    color: var(--color-fore-item_h);
+    background-color: var(--color-back-item_h);
+    border-color: var(--color-border-item_h);
+}
+
+.item::before {
+    display: inline-block;
+    margin-right: 1rch;
+    transform: translateY(calc((1rcap - 1rem) / 2.0));
+
+    content: "";
+    user-select: none;
+    font-size: 1.05rem;
+    line-height: 0rem;
+
+    font-family: var(--font-family-symbols);
+    opacity: 0.5;
+}
+
+.item.manual::before {
+    content: "󰯂";
+}
+
+.item.external::before {
+    content: "";
+}
+
+
+
+@media (width < 60rem) {
+    main {
+        padding: 1rch;
+    }
+
+    .item {
+        height: 2.6rem;
+        margin-bottom: 1rch;
+        padding: 0 1rch;
+
+        line-height: 2.6rem;
+        font-size: 1.2rem;
+    }
+}

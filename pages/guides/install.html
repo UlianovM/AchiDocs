@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>AchiDocs Установка ArchLinux</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../src/style/root.css">
+        <link rel="stylesheet" href="../../src/style/pages.css">
+    </head>
+    <body>
+        <div class="overlay" onclick="hideOverlay()"></div>
+        
+        <div class="layout">
+            <header onclick="hideOverlay()">
+                <h1><a href="../../index.html">Установка ArchLinux</a></h1>
+            </header>
+            <main>
+                <menu class="side">
+                </menu>
+                <div class="content">
+                    <button class="side-btn menu"
+                        onclick="toggleMenu()">
+                    </button>
+                    <button class="side-btn nav"
+                        onclick="toggleNav()">
+                    </button>
+
+
+
+                    <h2>Локализация консоли установщика</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>localectl</exe> <cmd>list-keymaps</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>loadkeys</exe> ru</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>setfont</exe> cyr-sun16</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="links">
+                            <a href="../notes/localectl.html">localectl</a>
+                            <a href="../notes/setfont.html">setfont</a>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Проверка режима загрузки (UEFI)</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>cat</exe> <pat>/sys/firmware/efi/</pat><fil>fw_platform_size</fil></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Подключение к сети</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>ip</exe> <cmd>link</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>ping</exe> <pat>ping.archlinux.org</pat></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>iwctl</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><cmd>station</cmd> <cmd>list</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><cmd>station</cmd> <var>device</var> <cmd>scan</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><cmd>station</cmd> <var>device</var> <cmd>get-networks</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><cmd>station</cmd> <var>device</var> <cmd>connect</cmd> <var>bssid</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><cmd>exit</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Время и часовой пояс</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>timedatectl</exe> <cmd>set-timezone</cmd> Europe/Moscow</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>timedatectl</exe> <cmd>status</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Разметка дисков</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>free</exe> <flg>-gh</flg></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>lsblk</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>lsblk</exe> <flg>-fp</flg></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>fdisk</exe> <pat>/dev/</pat><var>диск</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Форматирование разделов</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>mkfs.fat</exe> <flg>-F32</flg> <pat>/dev/</pat><var>boot-раздел</var> <flg>-n</flg> <var>label</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>mkfs.ext4</exe> <pat>/dev/</pat><var>root-раздел</var> <flg>-L</flg> <var>label</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>mkswap</exe> <pat>/dev/</pat><var>swap-раздел</var> <flg>-L</flg> <var>label</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Монтирование разделов</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>mount</exe> <pat>/dev/</pat><var>root-раздел</var> <pat>/mnt</pat></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>mount</exe> <pat>/dev/</pat><var>boot-раздел</var> <pat>/mnt/boot</pat> <flg>--mkdir</flg></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>swapon</exe> <pat>/dev/</pat><var>swap-раздел</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Настройка зеркал и установка базовой системы</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>reflector</exe> <flg>-c</flg> Russia                        <opr>\</opr>
+          <flg>-n</flg> 8                             <opr>\</opr>
+          <flg>-p</flg> https                         <opr>\</opr>
+          <flg>--sort</flg> rate                      <opr>\</opr>
+          <flg>--download-timeout</flg> 1             <opr>\</opr>
+          <flg>--connection-timeout</flg> 1           <opr>\</opr>
+          <flg>--save</flg> <pat>/etc/pacman.d/</pat>mirrorlist</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>pacstrap</exe> <flg>-P</flg> <pat>/mnt</pat> linux base <var>packages</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Генерация fstab</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>genfstab</exe> <flg>-U</flg> <pat>/mnt</pat> > <pat>/mnt/etc/</pat><fil>fstab</fil></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Вход в новую систему (chroot)</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>arch-chroot</exe> <pat>/mnt</pat> <pat>/bin/</pat><var>shell</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Локализация системы</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>nano</exe> <pat>/etc/</pat><fil>locale.gen</fil></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>locale-gen</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>nano</exe> <pat>/etc/</pat><fil>locale.conf</fil></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="filepath"><pat>/etc/</pat><fil>locale.conf</fil></div>
+                                <div class="code-type move">conf</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-numbers">
+                                    <div>1</div><div>2</div><div>3</div>
+                                </div>
+                                <div class="line-content">
+                                    <code><cnt>LANG</cnt>=<str>en_US</str></code>
+                                    <code><cnt>LANGUAGE</cnt>=<str>en_US<esc>:</esc>en<esc>:</esc>C</str></code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>nano</exe> <pat>/etc/</pat><fil>vconsole.conf</fil></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="filepath"><pat>/etc/</pat><fil>vconsole.conf</fil></div>
+                                <div class="code-type move">conf</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-numbers">
+                                    <div>1</div><div>2</div><div>3</div>
+                                </div>
+                                <div class="line-content">
+                                    <code><cnt>KEYMAP</cnt>=<str>us</str></code>
+                                    <code><cnt>FONT</cnt>=<str>default8x16</str></code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Имя хоста</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>echo</exe> <var>name</var> > <pat>/etc/<pat><fil>hostname</fil></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Пользователи и права</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>useradd</exe> <var>username</var>                 <opr>\</opr>
+    <flg>-mG</flg> wheel,input,audio,video  <opr>\</opr>
+    <flg>-s</flg> <pat>/bin/</pat><var>shell</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>export</exe> <cnt>EDITOR</cnt><ope>=</ope>nano</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>visudo</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>passwd</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>passwd</exe> <var>username</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Настройка initramfs (mkinitcpio)</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>nano</exe> <pat>/etc/</pat><fil>mkinitcpio.conf</fil></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="filepath"><pat>/etc/</pat><fil>vconsole.conf</fil></div>
+                                <div class="code-type move">conf</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-numbers">
+                                    <div>55</div>
+                                </div>
+                                <div class="line-content">
+                                    <code><cnt>HOOKS</cnt>=<str>(base <com>...</com> <u>resume</u> filesystems <com>...</com>)</str></code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Настройка Unified Kernel Image (UKI)</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>nano</exe> <pat>/etc/mkinitcpio<esc>.d</esc>/</pat><fil>linux.preset</fil></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="filepath"><pat>/etc/</pat><fil>vconsole.conf</fil></div>
+                                <div class="code-type move">conf</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-numbers">
+                                    <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div>
+                                </div>
+                                <div class="line-content">
+                                    <code><cnt>ALL_config</cnt>=<str>"/etc/mkinitcpio.conf"</str></code>
+                                    <code><cnt>ALL_kver</cnt>=<str>"/boot/vmlinuz-linux"</str></code>
+                                    <code><cnt>ALL_kerneldest</cnt>=<str>"/boot/vmlinuz-linux"</str></code>
+                                    <code><cnt>PRESETS</cnt>=<str>('default')</str></code>
+                                    <code><cnt>default_image</cnt>=<str>"/boot/initramfs-linux.img"</str></code>
+                                    <code><cnt>default_uki</cnt>=<str>"/boot/EFI/Linux/arch-linux.efi"</str></code>
+                                    <code><cnt>default_options</cnt>=<str>"--splash /usr/share/systemd/bootctl/splash-arch.bmp --cmdline /etc/kernel/cmdline"</str></code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>mkdir</exe> <pat>/boot/EFI/Linux</pat> <flg>-p</flg></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>echo</exe> <str>root=UUID=</str><opr>$</opr>(<exe>lsblk</exe> <flg>-n</flg> <flg>-o</flg> <str>UUID</str> <pat>/dev/</pat><var>root-раздел</var>)<str>    <opr>\</opr>
+     resume=UUID=</str><opr>$</opr>(<exe>lsblk</exe> <flg>-n</flg> <flg>-o</flg> <str>UUID</str> <pat>/dev/</pat><var>swap-раздел</var>)<str>  <opr>\</opr>
+     rw quiet</str> <opr>&gt;</opr> <pat>/etc/kernel/</pat><fil>cmdline</fil></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>mkinitcpio</exe> <flg>-P</flg></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Регистрация загрузочной записи в UEFI</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>pacman</exe> <flg>-S</flg> efibootmgr</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>efibootmgr</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>efibootmgr</exe> <flg>-c</flg>                              <opr>\</opr>
+           <flg>-d</flg> <pat>/dev/</pat><var>ДИСК-boot-раздела</var> <flg>-p</flg> 1  <opr>\</opr>
+           <flg>-l</flg> <pat>EFI/Linux/</pat><fil>arch-linux.efi</fil>     <opr>\</opr>
+           <flg>-L</flg> <var>label</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+
+
+                    <h2>Выход и перезагрузка</h2>
+                    <div class="block">
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>exit</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>umount</exe> <pat>/mnt</pat> <flg>-R</flg></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>reboot</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+                </div>
+                <nav class="side">
+                </nav>
+            </main>
+        </div>
+    </body>
+</html>
