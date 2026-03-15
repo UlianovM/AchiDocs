@@ -20,9 +20,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
-
-    backdrop-filter: brightness(25%);
+    z-index: 10;
 }
 
 .overlay.active {
@@ -235,6 +233,20 @@ p.indent {
     text-indent: 2rch;
 }
 
+.note {
+    margin-bottom: 1.5rch;
+    padding: 1rch;
+
+    background-color: var(--color-back-note);
+    border: 1px solid var(--color-border-note);
+    border-left: 0.5rch solid var(--color-border-note-alt);
+    border-radius: 0.5rch;
+}
+
+.note p {
+    margin-bottom: 0.5rch;
+}
+
 .links {
     display: flex;
     margin-bottom: 1.5rch;
@@ -265,9 +277,8 @@ main a:last-child { margin-right: 0; }
 main a::before {
     display: inline-block;
     margin-right: 0.5rch;
-    transform: translateY(-0.05rem);
 
-    content: "";
+    content: var(--symbol-note);
     user-select: none;
     font-size: 0.6rem;
     line-height: 0rem;
@@ -275,8 +286,16 @@ main a::before {
     font-family: var(--font-family-symbols);
 }
 
+main a.manual::before {
+    content: var(--symbol-manual);
+}
+
+main a.file::before {
+    content: var(--symbol-file);
+}
+
 main a.external::before {
-    content: "";
+    content: var(--symbol-external);
 }
 
 main a:hover {
@@ -306,12 +325,31 @@ ul {
 
 li {
     color: var(--color-fore-text);
+    padding-bottom: 0.5rch;
 }
 
 li::marker {
     font-family: var(--font-family-symbols);
     color: var(--color-fore-marker);
+   
     content: "";
+}
+
+.list {
+    margin-bottom: 1.5rch;
+    padding: 1.5rch;
+
+    background-color: var(--color-back-note);
+    border: 1px solid var(--color-border-note);
+    border-radius: 1rch;
+}
+
+.list code {
+    display: inline-block;
+}
+
+.list p {
+    padding-left: 4rch;
 }
 
 
@@ -546,10 +584,11 @@ button.copy:active {
         color: color-mix(in srgb, var(--color-syntax-variable), transparent  0%);
     }
     50% {
-        color: color-mix(in srgb, var(--color-syntax-variable), transparent 50%);
+        color: color-mix(in srgb, var(--color-syntax-variable), transparent 25%);
     }
 }
 
+c31, c32, c33, c34, c35, c36,
 exe, fil, pat, str, esc, cmd, flg, opr, cnt, com, var {
     display: inline;
     font-family: inherit;
@@ -557,6 +596,13 @@ exe, fil, pat, str, esc, cmd, flg, opr, cnt, com, var {
     line-height: inherit;
     white-space: inherit;
 }
+
+c31 { color: var(--color-fore-terminal-31); }
+c32 { color: var(--color-fore-terminal-32); }
+c33 { color: var(--color-fore-terminal-33); }
+c34 { color: var(--color-fore-terminal-34); }
+c35 { color: var(--color-fore-terminal-35); }
+c36 { color: var(--color-fore-terminal-36); }
 
 exe { color: var(--color-syntax-exec); }
 fil { color: var(--color-syntax-file); }
@@ -574,11 +620,12 @@ com {
 }
 
 var {
+    display: inline-block;
     color: var(--color-syntax-variable);
     font-style: italic;
     text-decoration: underline;
     text-decoration-color: var(--color-syntax-variable);
-    animation: variable-phase 2s ease infinite;
+    animation: variable-phase 1s ease infinite;
 }
 
 .filepath fil,
@@ -606,12 +653,12 @@ table {
 
 th,
 td {
-    padding: 0.5rch 1rch;
+    padding: 0.5rch 1.25rch;
 
     white-space: nowrap;
     word-wrap: none;
 
-    line-height: 2rem;
+    /* line-height: 1.8rem; */
     min-width: 1.5rem;
     border: 1px solid var(--color-border-table);
 }
@@ -626,6 +673,11 @@ td {
 
     color: var(--color-fore-table-body);
     background-color: var(--color-back-table-body);
+}
+
+.min-width {
+    width: 0;
+    min-width: max-content;
 }
 
 .rj { text-align: right; }

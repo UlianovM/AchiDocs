@@ -51,8 +51,8 @@
                             <button class="copy">󰆏</button>
                         </div>
                         <div class="links">
-                            <a href="../notes/localectl.html">localectl</a>
-                            <a href="../notes/setfont.html">setfont</a>
+                            <a href="../notes/localectl.html">Каталог: localectl</a>
+                            <a href="../notes/setfont.html">Утилита: setfont</a>
                         </div>
                     </div>
 
@@ -67,6 +67,17 @@
                             </div>
                             <button class="copy">󰆏</button>
                         </div>
+                        <div class="scroll-domain">
+                            <table>
+                                <thead>
+                                    <tr><th>Результат комманды</th><th class="lj">Режим загрузки</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr> <td class="min-width"><code class="inline">32</code> или <code class="inline">64</code></td><td>UEFI</td> </tr>
+                                    <tr> <td class="min-width"><code class="inline"><c31>No such file or directory</c31></code></td><td>BIOS/CSM</td> </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
 
@@ -77,13 +88,6 @@
                             <div class="text">
                                 <div class="env">#</div>
                                 <code><exe>ip</exe> <cmd>link</cmd></code>
-                            </div>
-                            <button class="copy">󰆏</button>
-                        </div>
-                        <div class="command">
-                            <div class="text">
-                                <div class="env">#</div>
-                                <code><exe>ping</exe> <pat>ping.archlinux.org</pat></code>
                             </div>
                             <button class="copy">󰆏</button>
                         </div>
@@ -128,6 +132,16 @@
                                 <code><cmd>exit</cmd></code>
                             </div>
                             <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>ping</exe> <pat>ping.archlinux.org</pat></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="links">
+                            <a href="../notes/iwd.html">Утилита: iwd (iwctl)</a>
                         </div>
                     </div>
 
@@ -182,6 +196,9 @@
                                 <code><exe>fdisk</exe> <pat>/dev/</pat><var>диск</var></code>
                             </div>
                             <button class="copy">󰆏</button>
+                        </div>
+                        <div class="links">
+                            <a href="../notes/fdisk.html">Утилита fdisk</a>
                         </div>
                     </div>
 
@@ -295,12 +312,29 @@
 
                     <h2>Локализация системы</h2>
                     <div class="block">
+                        <h3>Генерация локали</h3>
                         <div class="command">
                             <div class="text">
                                 <div class="env">#</div>
                                 <code><exe>nano</exe> <pat>/etc/</pat><fil>locale.gen</fil></code>
                             </div>
                             <button class="copy">󰆏</button>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="filepath"><pat>/etc/</pat><fil>locale.gen</fil></div>
+                                <div class="code-type move">gen</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-numbers">
+                                    <div>172</div><div>403</div>
+                                </div>
+                                <div class="line-content">
+                                    <code>en_US.UTF-8 UTF-8</code>
+                                    <code>ru_RU.UTF-8 UTF-8</code>
+                                </div>
+                            </div>
                         </div>
                         <div class="command">
                             <div class="text">
@@ -309,6 +343,8 @@
                             </div>
                             <button class="copy">󰆏</button>
                         </div>
+
+                        <h3>Настройка локали</h3>
                         <div class="command">
                             <div class="text">
                                 <div class="env">#</div>
@@ -354,6 +390,11 @@
                                     <code><cnt>FONT</cnt>=<str>default8x16</str></code>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="links">
+                            <a href="../dots.html#locale_conf">locale.conf</a>
+                            <a href="../dots.html#vconsole_conf">vconsole.conf</a>
                         </div>
                     </div>
 

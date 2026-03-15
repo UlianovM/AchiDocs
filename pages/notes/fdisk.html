@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>AchiDocs localectl</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../src/style/root.css">
+        <link rel="stylesheet" href="../../src/style/pages.css">
+    </head>
+    <body>
+        <div class="overlay" onclick="hideOverlay()"></div>
+        
+        <div class="layout">
+            <header onclick="hideOverlay()">
+                <h1><a href="../../index.html">localectl</a></h1>
+            </header>
+            <main>
+                <menu class="side">
+                </menu>
+                <div class="content">
+                    <button class="side-btn menu"
+                        onclick="toggleMenu()">
+                    </button>
+                    <button class="side-btn nav"
+                        onclick="toggleNav()">
+                    </button>
+
+                    <div class="block">
+                        <h3>fdisk</h3>
+                        <p>это диалоговая программа для создания таблиц разделов и управления ими</p>
+
+                        <p class="comment">Вход в клиент утилиты:</h4>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>fdisk</exe> <var>[options]</var> <var>disk</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <p class="comment">Отобразить таблицу разделов диска:</h4>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>fdisk</exe> <flg>-l</flg> <var>disk</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+                    <h2>Интерактивный режим</h2>
+                    <div class="block">
+                        <h4>Комманды:</h4>
+                        <div class="scroll-domain"><table>
+                            <tbody>
+                                <tr><td class="cj min-width"><code><cmd>w</cmd></code></td><td>Записать изменения на диск</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>q</cmd></code></td><td>Выйти без применения изменений</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>g</cmd></code></td><td>Создать чистую GPT разметку (для всего диска)</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>o</cmd></code></td><td>Создать чистую MBR разметку (для всего диска)</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>n</cmd></code></td><td>Создать новый раздел</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>t</cmd></code></td><td>Задать тип разделу</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>l</cmd></code></td><td>Отобразить всё допустимые типы разделов (и их алиасы)</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>e</cmd></code></td><td>Изменить размер раздела</td></tr>
+                                <tr><td class="cj min-width"><code><com>T</com></code></td><td>(trim) Не используется</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>p</cmd></code></td><td>Отобразить таблицу разделов (изменённую)</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>F</cmd></code></td><td>Отобразить нераспределённое место</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>d</cmd></code></td><td>Удалить раздел</td></tr>
+                            </tbody>
+                        </table></div>
+
+                        <h4>Часто используемые алиасы типов разделов:</h4>
+                        <div class="scroll-domain"><table>
+                            <tbody>
+                                <tr><td class="cj min-width"><code> 1</code></td><td><code>EFI System</code></td></tr>
+                                <tr><td class="cj min-width"><code> 4</code></td><td><code>BIOS Boot</code></td></tr>
+                                <tr><td class="cj min-width"><code>19</code></td><td><code>Linux swap</code></td></tr>
+                                <tr><td class="cj min-width"><code>20</code></td><td><code>Linux filesystem</code></td></tr>
+                                <tr><td class="cj min-width"><code>22</code></td><td><code>Linux root (x86)</code></td></tr>
+                                <tr><td class="cj min-width"><code>23</code></td><td><code>Linux root (x86_64)</code></td></tr>
+                                <tr><td class="cj min-width"><code>42</code></td><td><code>Linux home</code></td></tr>
+                                <tr><td class="cj min-width"><code>47</code></td><td><code>Linux usr (x86)</code></td></tr>
+                                <tr><td class="cj min-width"><code>48</code></td><td><code>Linux usr (x86_64)</code></td></tr>
+                            </tbody>
+                        </table></div>
+
+                        <h3>Пример использования</h3>
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="snippet-name">Диск размечается в простую GPT разметку</div>
+                                <div class="code-type move">type</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-content">
+                                    <code><c32>Welcome to fdisk (util-linux 2.41.3).</c32></code>
+                                    <code>Changes will remain in memory only, until you decide to write them.</code>
+                                    <code>By careful before using write command.</code>
+                                    <code></code>
+                                    <code></code>
+                                    <code>Command (m for help): <cmd>g</cmd></code>
+                                    <code>Created a new GPT disklabel (GUID: <com>...</com>)</code>
+                                    <code></code>
+                                    <code>Command (m for help): <cmd>n</cmd></code>
+                                    <code>Partition number (1-128, default 1): <nfs>󱞦</nfs></code>
+                                    <code>First sector (<com>...</com>-<com>...</com>, default <com>...</com>): <nfs>󱞦</nfs></code>
+                                    <code>Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-<com>...</com>, default <com>...</com>): <str>+1G</str></code>
+                                    <code></code>
+                                    <code>Created a new partition 1 of type 'Linux Filesystem' and of size 1GiB.</code>
+                                    <code></code>
+                                    <code>Command (m for help): <cmd>t</cmd></code>
+                                    <code>Selected partition 1</code>
+                                    <code>Partiton type or alias (type L to list all): <str>1</str></code>
+                                    <code>Changed type of partition 'Linux filesystem' to 'EFI System'.</code>
+                                    <code></code>
+                                    <code>Command (m for help): <cmd>n</cmd></code>
+                                    <code>Partition number (2-128, default 2): <nfs>󱞦</nfs></code>
+                                    <code>First sector (<com>...</com>-<com>...</com>, default <com>...</com>): <nfs>󱞦</nfs></code>
+                                    <code>Last sector, +/-sectors or +/-size{K,M,G,T,P} (<com>...</com>-<com>...</com>, default <com>...</com>): <str>-4G</str></code>
+                                    <code></code>
+                                    <code>Created a new partition 2 of type 'Linux Filesystem' and of size 27GiB.</code>
+                                    <code></code>
+                                    <code>Command (m for help): <cmd>t</cmd></code>
+                                    <code>Partition number (1-2, default 2): <nfs>󱞦</nfs></code>
+                                    <code>Partiton type or alias (type L to list all): <str>23</str></code>
+                                    <code>Changed type of partition 'Linux filesystem' to 'Linux root (x86-64)'.</code>
+                                    <code></code>
+                                    <code>Command (m for help): <cmd>n</cmd></code>
+                                    <code>Partition number (3-128, default 3): <nfs>󱞦</nfs></code>
+                                    <code>First sector (<com>...</com>-<com>...</com>, default <com>...</com>): <nfs>󱞦</nfs></code>
+                                    <code>Last sector, +/-sectors or +/-size{K,M,G,T,P} (<com>...</com>-<com>...</com>, default <com>...</com>): <nfs>󱞦</nfs></code>
+                                    <code></code>
+                                    <code>Created a new partition 3 of type 'Linux Filesystem' and of size 4GiB.</code>
+                                    <code></code>
+                                    <code>Command (m for help): <cmd>t</cmd></code>
+                                    <code>Partition number (1-3, default 3): <nfs>󱞦</nfs></code>
+                                    <code>Partiton type or alias (type L to list all): <str>19</str></code>
+                                    <code>Changed type of partition 'Linux filesystem' to 'Linux swap'.</code>
+                                    <code></code>
+                                    <code>Command (m for help): <cmd>p</cmd></code>
+                                    <code>Disk model: VMware Virtual NVMe Disk</code>
+                                    <code>Units: sectors of 1 * 512 = 512 bytes</code>
+                                    <code>Sector size (logical/physical): 512 bytes / 512 bytes</code>
+                                    <code>I/O size (minimum/optimal): 512 bytes / 512 bytes</code>
+                                    <code>Disklabel type: gpt</code>
+                                    <code>Disk identifier: EICEF3BA-4991-43AA-B7A4-5E93DE851B9C</code>
+                                    <code></code>
+                                    <code>Device            Start      End  Sectors Size Type</code>
+                                    <code>/dev/nvme0n1p1     2048  2099199  2097152   1G EFI System</code>
+                                    <code>/dev/nvme0n1p2  2099200 58720255 56621056  27G Linux root (x86-64)</code>
+                                    <code>/dev/nvme0n1p3 58720256 67106815  8386560   4G EFI System</code>
+                                    <code></code>
+                                    <code>Command (m for help): <cmd>w</cmd></code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 id="fdisk-options">Параметры fdisk</h2>
+                    <div class="block">
+                        <div class="list">
+                            <code><flg>-b</flg> <var>sectorsize</var>, <flg>--sector-size</flg> <var>sectorsize</var></code>
+                            <p>Размер сектора диска, допустимые значения - 512, 1024, 2048 и 4096</p>
+                        </div>
+                        <div class="list">
+                            <code><flg>-L</flg>, <flg>--color</flg><var>[=when]</var></code>
+                            <p>Цветной вывод, необязательным аргументом when может быть значение auto, never или always, по умолчанию auto</p>
+                        </div>
+                        <div class="list">
+                            <code><flg>-l</flg>, <flg>--list</flg></code>
+                            <p>Выведит список таблиц разделов для указанных устройств, а затем завершит работу. Если устройства не указаны, используются устройства, указанные в /proc/partitions (если этот файл существует). Устройства всегда перечисляются в том порядке, в котором они указаны в командной строке или ядром, указанным в /proc/partitions.</p>
+                        </div>
+                        <div class="list">
+                            <code><flg>-x</flg>, <flg>--list-details</flg></code>
+                            <p>Как и --list, но содержит более подробную информацию</p>
+                        </div>
+                        <div class="list">
+                            <code><flg>-n</flg>, <flg>--noauto-pt</flg></code>
+                            <p>Автоматически не создаёт таблицу разделов по умолчанию на пустом устройстве. Таблица разделов должна быть явно создана пользователем (с помощью команд o, g и т.д.).</p>
+                        </div>
+                        <div class="list">
+                            <code><flg>-o</flg> <var>list</var>, <flg>--output</flg> <var>list</var></code>
+                            <p>Указывает, какие выходные столбцы печатать. Используйте --help, чтобы получить список всех поддерживаемых столбцов. Список столбцов по умолчанию может быть расширен, если список указан в формате +list (например, -o +UUID)</p>
+                        </div>
+                        <div class="list">
+                            <code><flg>-w</flg> <var>[when]</var>, <flg>--wipe</flg> <var>when</var></code>
+                            <p>Удаляет подписи файловой системы, RAID и таблицы разделов с устройства, чтобы избежать возможных коллизий. Параметром when может иметь значения auto, never или always. Если этот параметр не задан, по умолчанию используется значение auto, и в этом случае подписи удаляются только в интерактивном режиме. Во всех случаях обнаруженные сигнатуры отображаются предупреждающими сообщениями перед созданием новой таблицы разделов</p>
+                        </div>
+                        <div class="list">
+                            <code><flg>-W</flg> <var>[when]</var>, <flg>--wipe-partitions</flg> <var>when</var></code>
+                            <p>Удаляет подписи файловой системы, RAID и таблицы разделов из только что созданных разделов, чтобы избежать возможных коллизий. Аргументом when может быть значение auto, never или always. Если этот агрумент не указан, по умолчанию используется значение auto, и в этом случае подписи удаляются только в интерактивном режиме и после подтверждения пользователем. Во всех случаях обнаруженные подписи отображаются предупреждающими сообщениями перед созданием нового раздела</p>
+                        </div>
+                        <div class="list">
+                            <code><flg>-h</flg>, <flg>--help</flg></code>
+                            <p>Выведет help документацию</p>
+                        </div>
+                        <div class="list">
+                            <code><flg>-V</flg>, <flg>--version</flg></code>
+                            <p>Отобразит версию</p>
+                        </div>
+                        <div class="note">
+                            <p>Некоторые специфичные флаги здесь не указаны</p>
+                        </div>
+                    </div>
+                </div>
+                <nav class="side">
+                </nav>
+            </main>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>AchiDodc Виртуальная машина</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../src/style/root.css">
+        <link rel="stylesheet" href="../../src/style/pages.css">
+    </head>
+    <body>
+        <div class="overlay" onclick="hideOverlay()"></div>
+        
+        <div class="layout">
+            <header onclick="hideOverlay()">
+                <h1><a href="../../index.html">Виртуальная машина</a></h1>
+            </header>
+            <main>
+                <menu class="side">
+                </menu>
+                <div class="content">
+                    <button class="side-btn menu"
+                        onclick="toggleMenu()">
+                    </button>
+                    <button class="side-btn nav"
+                        onclick="toggleNav()">
+                    </button>
+
+                    
+                    
+                    <h2>Установка</h2>
+                    
+                    <div class="block">
+                        <div class="scroll-domain">
+                            <table>
+                                <thead>
+                                    <tr><th class="min-width">Пакет</th><th class="lj">Зачем нужен</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>qemu-full     </code></td><td>Сам эмулятор/гипервизор, полная версия со всеми архитектурами и бэкендами</td></tr>
+                                    <tr><td><code>libvirt       </code></td><td>Демон-обёртка над QEMU — единый API для управления ВМ, сетями, хранилищами</td></tr>
+                                    <tr><td><code>virt-manager  </code></td><td>GUI для управления ВМ (использует GTK, работает на Wayland через XWayland)</td></tr>
+                                    <tr><td><code>edk2-ovmf     </code></td><td>UEFI-прошивка для виртуальных машин (вместо legacy BIOS)</td></tr>
+                                    <tr><td><code>dnsmasq       </code></td><td>DNS/DHCP-сервер для виртуальной NAT-сети</td></tr>
+                                    <tr><td><code>vde2          </code></td><td>Виртуальный Ethernet — продвинутая сеть между ВМ</td></tr>
+                                    <tr><td><code>openbsd-netcat</code></td><td>Нужен libvirt для некоторых сетевых операций</td></tr>
+                                    <tr><td><code>bridge-utils  </code></td><td>Создание сетевых мостов (bridged networking)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p class="comment">Установка пакетов из основных репозиториев:</p>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code><exe>sudo</exe> <exe>pacman</exe> <flg>-S</flg> qemu-full edk2-ovmf       <opr>\</opr>
+               libvirt   virt-manager    <opr>\</opr>
+               dnsmasq   openbsd-netcat  <opr>\</opr>
+               vde2</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <p class="comment">Установка пакета bridge-utils из AUR:</p>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code><exe>git</exe> <cmd>clone</cmd> https://aur.archlinux.org/bridge-utils.git  <opr>\</opr>
+<exe>makepkg</exe> <flg>-siCD</flg> <flg>--skippgpcheck</flg> bridge-utils             <opr>\</opr>
+<code><exe>rm</exe> <flg>-rf</flg> bridge-utils</code></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+                    
+                    <h2>Настройка</h2>
+                    <div class="block">
+                        <h3>Настройка сервисов и прав</h3>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code><exe>sudo</exe> <exe>systemctl</exe> <cmd>enable</cmd> <flg>--now</flg> libvirtd.service</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code><exe>sudo</exe> <exe>usermod</exe> <flg>-aG</flg> libvirt,kvm <var>username</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code><exe>sudo</exe> <exe>nano</exe> <pat>/etc/libvirt/</pat><fil>libvirtd.conf</fil></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-head">
+                                <div class="filepath"><pat>/etc/libvirt/</pat><fil>libvirtd.conf</fil></div>
+                                <div class="code-type move">conf</div>
+                                <button class="copy">󰆏</button>
+                            </div>
+                            <div class="code-body">
+                                <div class="line-numbers">
+                                    <div>85</div>
+                                    <div>108</div>
+                                </div>
+                                <div class="line-content">
+                                    <code><cnt>unix_sock_group</cnt> = <str>"libvirt"</str></code>
+                                    <code><cnt>unix_sock_rw_perms</cnt> = <str>"0770"</str></code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code><exe>sudo</exe> <exe>systemctl</exe> <cmd>restart</cmd> libvirtd</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <h3>Включение виртуальной сети</h3>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code><exe>sudo</exe> <exe>virsh</exe> <cmd>net-start</cmd> default</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code><exe>sudo</exe> <exe>virsh</exe> <cmd>net-autostart</cmd> default</code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+                    <h2>Использование</h2>
+                    <div class="block">
+                        <p class="comment">Запуск менеджера виртуальных машин:</p>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">$</div>
+                                <code><exe>virt-manager</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+
+                        <h3>Проброс USB-устройств</h3>
+                        <ul>
+                            <li>Открыть виртуальную машину</li>
+                            <li>Перейти в свойства</li>
+                            <li><code>Add Hardware</code></li>
+                            <li><code>USB Host Device</code></li>
+                            <li><code>Finish</code></li>
+                        </ul>
+                        <div class="warn">
+                            <p>При запуске VM владение мышью может передатся полностью, без возможности временно отвязать</p>
+                        </div>
+                    </div>
+
+                    <div class="block">
+
+                        <h3>Ссылки</h3>
+                        
+                        <div class="links">
+                            <a href="https://wiki.archlinux.org/title/QEMU" target="_blank" class="external">QEMU - Arch Wiki page</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                <nav class="side">
+                </nav>
+            </main>
+        </div>
+    </body>
+</html>

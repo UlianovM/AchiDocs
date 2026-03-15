@@ -45,8 +45,6 @@ main {
 
 
 
-
-
 h1, h2, h3, h4 {
     font-family: var(--font-family-head);
 }
@@ -60,7 +58,12 @@ h1 {
 }
 
 .block {
-    display: block;
+    margin-bottom: 6rch;
+    padding: 3rch;
+
+    background-color: var(--color-back-block);
+    border: 1px solid var(--color-border-block);
+    border-radius: 1rch;
 }
 
 .item {
@@ -90,7 +93,7 @@ h1 {
     margin-right: 1rch;
     transform: translateY(calc((1rcap - 1rem) / 2.0));
 
-    content: "";
+    content: var(--symbol-note);
     user-select: none;
     font-size: 1.05rem;
     line-height: 0rem;
@@ -100,11 +103,15 @@ h1 {
 }
 
 .item.manual::before {
-    content: "󰯂";
+    content: var(--symbol-manual);
+}
+
+.item.file::before {
+    content: var(--symbol-file);
 }
 
 .item.external::before {
-    content: "";
+    content: var(--symbol-external);
 }
 
 

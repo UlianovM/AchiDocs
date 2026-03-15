@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>AchiDocs localectl</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../src/style/root.css">
+        <link rel="stylesheet" href="../../src/style/pages.css">
+    </head>
+    <body>
+        <div class="overlay" onclick="hideOverlay()"></div>
+        
+        <div class="layout">
+            <header onclick="hideOverlay()">
+                <h1><a href="../../index.html">localectl</a></h1>
+            </header>
+            <main>
+                <menu class="side">
+                </menu>
+                <div class="content">
+                    <button class="side-btn menu"
+                        onclick="toggleMenu()">
+                    </button>
+                    <button class="side-btn nav"
+                        onclick="toggleNav()">
+                    </button>
+
+                    <div class="block">
+                        <h3>iwd</h3>
+                        <p>Инструмент для настройки демона iwd через интерфейс D-Bus. Поддерживает как интерактивный режим, так и режим командной строки.</p>
+
+                    </div>
+
+                    <h2>Интерактивный режим</h2>
+                    <div class="block">
+                        <h4>Вход в интерактивный режим:</h4>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>iwctl</exe></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <br>
+
+                        <h4>Таблица доступных интерфейсов:</h4>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">[iwd]#</div>
+                                <code><cmd>device</cmd> <cmd>list</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <br>
+
+                        <h4>Сканирование сети:</h4>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">[iwd]#</div>
+                                <code><cmd>station</cmd> <var>device</var> <cmd>scan</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <p><code class="inline">device</code> - имя интерфейса, например <code class="inline">wlan0</code></p>
+                        <br>
+
+                        <h4>Таблица доступных сетей:</h4>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">[iwd]#</div>
+                                <code><cmd>station</cmd> <var>device</var> <cmd>get-networks</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <p>В интерактивном режиме таблица обновляется автоматически</p>
+                        <br>
+
+                        <h4>Подключение:</h4>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">[iwd]#</div>
+                                <code><cmd>station</cmd> <var>device</var> <cmd>connect</cmd> <var>SSID</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                        <p><code class="inline">SSID</code> - имя сети</p>
+                        <div class="note">
+                            <p>Для подключения к некоторым сетям необходимо иметь пожддержку русских символов</p>
+                            <p>Пробелы можно указать с помощью escape символа <code class="inline">\</code></p>
+                            <p>Пример: <code class="inline"><cmd>station</cmd> <var>device</var> <cmd>connect</cmd> <str>Net<esc>\ </esc>Work</str></code>)</p>
+                        </div>
+                        <br>
+
+                        <h4>Выход из интерактивного режима:</h4>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">[iwd]#</div>
+                                <code><cmd>exit</cmd></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+                    <h2>Режим коммандной строки</h2>
+                    <div class="block">
+                        <p>Все теже комманды, но с указанием каталога <code class="inline"><exe>iwctl</exe></code>, полезно автоматизации / создания скриптов</p>
+
+                        <p class="comment">Пример:</p>
+                        <div class="command">
+                            <div class="text">
+                                <div class="env">#</div>
+                                <code><exe>iwctl</exe> <cmd>station</cmd> <var>device</var> <cmd>connect</cmd> <var>SSID</var></code>
+                            </div>
+                            <button class="copy">󰆏</button>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <h3>Ссылки</h3>
+                        <div class="links">
+                            <a href="https://wiki.archlinux.org/title/Iwd" target="_blank" class="external">iwd - Arch Wiki</a>
+                            <a href="https://man.archlinux.org/man/iwctl.1" target="_blank" class="external">iwctl(1) - Arch manual page</a>
+                        </div>
+                    </div>
+                </div>
+                <nav class="side">
+                </nav>
+            </main>
+        </div>
+    </body>
+</html>
