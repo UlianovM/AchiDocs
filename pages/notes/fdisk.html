@@ -50,25 +50,25 @@
 
                     <h2>Интерактивный режим</h2>
                     <div class="block">
-                        <h4>Комманды:</h4>
+                        <h4 class="anchor" id="commands">Комманды</h4>
                         <div class="scroll-domain"><table>
                             <tbody>
-                                <tr><td class="cj min-width"><code><cmd>w</cmd></code></td><td>Записать изменения на диск</td></tr>
-                                <tr><td class="cj min-width"><code><cmd>q</cmd></code></td><td>Выйти без применения изменений</td></tr>
-                                <tr><td class="cj min-width"><code><cmd>g</cmd></code></td><td>Создать чистую GPT разметку (для всего диска)</td></tr>
-                                <tr><td class="cj min-width"><code><cmd>o</cmd></code></td><td>Создать чистую MBR разметку (для всего диска)</td></tr>
-                                <tr><td class="cj min-width"><code><cmd>n</cmd></code></td><td>Создать новый раздел</td></tr>
-                                <tr><td class="cj min-width"><code><cmd>t</cmd></code></td><td>Задать тип разделу</td></tr>
-                                <tr><td class="cj min-width"><code><cmd>l</cmd></code></td><td>Отобразить всё допустимые типы разделов (и их алиасы)</td></tr>
-                                <tr><td class="cj min-width"><code><cmd>e</cmd></code></td><td>Изменить размер раздела</td></tr>
-                                <tr><td class="cj min-width"><code><com>T</com></code></td><td>(trim) Не используется</td></tr>
-                                <tr><td class="cj min-width"><code><cmd>p</cmd></code></td><td>Отобразить таблицу разделов (изменённую)</td></tr>
-                                <tr><td class="cj min-width"><code><cmd>F</cmd></code></td><td>Отобразить нераспределённое место</td></tr>
-                                <tr><td class="cj min-width"><code><cmd>d</cmd></code></td><td>Удалить раздел</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>w</cmd></code></td><td class="min-width"><code><com><cmd>w</cmd>rite</com></code></td><td>Записать изменения на диск</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>q</cmd></code></td><td class="min-width"><code><com><cmd>q</cmd>uit</com></code></td><td>Выйти без применения изменений</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>g</cmd></code></td><td class="min-width"><code><com><cmd>g</cmd>pt</com></code></td><td>Создать чистую GPT разметку (для всего диска)</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>o</cmd></code></td><td class="min-width"><code><com>d<cmd>o</cmd>s</com></code></td><td>Создать чистую MBR разметку (для всего диска)</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>n</cmd></code></td><td class="min-width"><code><com><cmd>n</cmd>ew</com></code></td><td>Создать новый раздел</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>t</cmd></code></td><td class="min-width"><code><com><cmd>t</cmd>ype</com></code></td><td>Задать тип разделу</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>l</cmd></code></td><td class="min-width"><code><com><cmd>l</cmd>ist</com></code></td><td>Отобразить всё допустимые типы разделов (и их алиасы)</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>e</cmd></code></td><td class="min-width"><code><com><cmd>e</cmd>dit</com></code></td><td>Изменить размер раздела</td></tr>
+                                <tr><td class="cj min-width"><code><com>T</com></code></td><td class="min-width"><code><com><com>T</com>rim</com></code></td><td>Не используется</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>p</cmd></code></td><td class="min-width"><code><com><cmd>p</cmd>rint</com></code></td><td>Отобразить таблицу разделов (изменённую)</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>F</cmd></code></td><td class="min-width"><code><com><cmd>F</cmd>ree</com></code></td><td>Отобразить нераспределённое место</td></tr>
+                                <tr><td class="cj min-width"><code><cmd>d</cmd></code></td><td class="min-width"><code><com><cmd>d</cmd>elete</com></code></td><td>Удалить раздел</td></tr>
                             </tbody>
                         </table></div>
 
-                        <h4>Часто используемые алиасы типов разделов:</h4>
+                        <h4 class="anchor" id="frequently-used">Часто используемые алиасы типов разделов</h4>
                         <div class="scroll-domain"><table>
                             <tbody>
                                 <tr><td class="cj min-width"><code> 1</code></td><td><code>EFI System</code></td></tr>
@@ -83,7 +83,7 @@
                             </tbody>
                         </table></div>
 
-                        <h3>Пример использования</h3>
+                        <h3 id="example">Пример использования</h3>
                         <div class="code-block">
                             <div class="code-head">
                                 <div class="snippet-name">Диск размечается в простую GPT разметку</div>
@@ -201,10 +201,18 @@
                             <p>Некоторые специфичные флаги здесь не указаны</p>
                         </div>
                     </div>
+
+                    <h2 id="links">Ссылки</h2>
+                    <div class="links">
+                        <a href="https://wiki.archlinux.org/title/Fdisk" target="_blank" class="external">fdisk - Arch Wiki</a>
+                        <a href="https://man.archlinux.org/man/fdisk.8" target="_blank" class="external">fdisk(8) - Arch Manuals</a>
+                    </div>
                 </div>
                 <nav class="side">
                 </nav>
             </main>
         </div>
+
+        <script src="../../src/script/init-nav.js"></script>
     </body>
 </html>

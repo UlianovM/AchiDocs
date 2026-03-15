@@ -82,6 +82,8 @@ main {
 
     overflow-y: auto;
     scrollbar-color: var(--color-scroll-html) var(--color-back-html);
+    scroll-padding-top: 6rch;
+    scroll-behavior: smooth;
 }
 
 .side {
@@ -115,7 +117,7 @@ nav {
     display: block;
     width: var(--size-main);
     height: max-content;
-    padding: 6rch;
+    padding: 6rch 3rch;
     padding-bottom: 50vh;
 
     background-color: var(--color-back-main);
@@ -144,6 +146,7 @@ h1 a {
 
 h1:hover {
     color: var(--color-fore-head-1_h);
+    text-decoration: underline;
 }
 
 .block {
@@ -167,6 +170,12 @@ h2 {
     font-weight: 600;
 
     color: var(--color-fore-head-2);
+}
+
+h2#links {
+    margin-bottom: 1.5rch;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
 }
 
 h3 {
@@ -198,23 +207,13 @@ h2, h3 {
     cursor: pointer;
 }
 
-h2::before,
-h3::before {
+.content h2::before,
+.content h3[id]::before {
     content: "#";
     font-family: inherit;
     margin-right: 0.5rch;
 
-    color: var(--color-fore-meta);
-}
-
-h2:hover::before,
-h3:hover::before {
-    color: var(--color-fore-meta_h);
-}
-
-h2:active::before,
-h3:active::before {
-    color: var(--color-fore-meta_a);
+    color: var(--color-fore-anchor);
 }
 
 p {
@@ -254,13 +253,13 @@ p.indent {
     flex-flow: row wrap;
 }
 
-main a {
+.content a {
     display: inline-block;
     margin: 0 0.5rch;
     padding: 0 0.75rch;
     
-    font-size: 0.8rem;
-    line-height: 1.4rem;
+    font-size: 0.85rem;
+    line-height: 1.5rem;
     font-family: var(--font-family-link);
     font-weight: 500;
     text-decoration: none;
@@ -271,12 +270,20 @@ main a {
     border-radius: 0.8rch;
 }
 
-main a:first-child { margin-left: 0; }
-main a:last-child { margin-right: 0; }
+.content a:hover {
+    text-decoration: underline;
+    color: var(--color-fore-link_h);
+    background-color: var(--color-back-link_h);
+    border-color: var(--color-border-link_h);
+}
 
-main a::before {
+.content a:first-child { margin-left: 0; }
+.content a:last-child { margin-right: 0; }
+
+.content a::before {
     display: inline-block;
     margin-right: 0.5rch;
+    transform: translateY(-0.1rcap);
 
     content: var(--symbol-note);
     user-select: none;
@@ -286,33 +293,27 @@ main a::before {
     font-family: var(--font-family-symbols);
 }
 
-main a.manual::before {
+.content a.manual::before {
     content: var(--symbol-manual);
 }
 
-main a.file::before {
+.content a.file::before {
     content: var(--symbol-file);
 }
 
-main a.external::before {
+.content a.external::before {
     content: var(--symbol-external);
 }
 
-main a:hover {
-    color: var(--color-fore-link_h);
-    background-color: var(--color-back-link_h);
-    border-color: var(--color-border-link_h);
-}
-
-main a.external,
-main a:visited {
+.content a.external,
+.content a:visited {
     color: var(--color-fore-link_v);
     background-color: var(--color-back-link_v);
     border-color: var(--color-border-link_v);
 }
 
-main a.external:hover,
-main a:visited:hover {
+.content a.external:hover,
+.content a:visited:hover {
     color: var(--color-fore-link_hv);
     background-color: var(--color-back-link_hv);
     border-color: var(--color-border-link_hv);
@@ -337,11 +338,6 @@ li::marker {
 
 .list {
     margin-bottom: 1.5rch;
-    padding: 1.5rch;
-
-    background-color: var(--color-back-note);
-    border: 1px solid var(--color-border-note);
-    border-radius: 1rch;
 }
 
 .list code {
@@ -477,6 +473,10 @@ code.inline {
 .line-content {
     display: flex;
     padding: 0.5rem 1rch 0.5rch 1rch;
+    min-width: 100%;
+
+    max-height: calc(min(40rem, 50vh));
+    overflow-y: auto;
     
     flex-flow: column nowrap;
     overflow-x: auto;
@@ -491,6 +491,7 @@ code.inline {
 .line-content code {
     display: inline-block;
 
+    flex-shrink: 0;
     font-size: 1rem;
     line-height: 1.3rem;
     height: 1.3rem;
@@ -686,7 +687,90 @@ td {
 
 div[level] { padding-left: 2rch; }
 
-@media (width < 90rem) {
+
+
+/*///////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////*/
+
+
+
+nav {
+    padding: calc(3rch + 1.4rcap) 3rch;
+}
+
+nav * {
+    pointer-events: all;
+}
+
+nav h1 {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-bottom: 1.5rch;
+    color: inherit;
+}
+
+nav h2,
+nav h3,
+nav h4 {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    margin-bottom: 0;
+    font-weight: 500;
+    color: inherit;
+    background-color: inherit;
+}
+
+nav h3 {
+    font-size: 1.0rem;
+    line-height: 1.5rem;
+    margin-top: 0;
+    padding-left: 1.5rch;
+}
+
+nav h4 {
+    display: block;
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    margin-top: 0;
+    padding-left: 3rch;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-fore-nav-item);
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: var(--color-fore-nav-item_h);
+}
+
+nav a:active {
+    color: var(--color-fore-nav-item_a);
+}
+
+nav a.visible {
+    color: var(--color-fore-nav-item_v);
+}
+
+nav a.visible:hover {
+    color: var(--color-fore-nav-item_hv);
+}
+
+nav a.visible:active {
+    color: var(--color-fore-nav-item_av);
+}
+
+
+
+/*///////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////*/
+
+
+
+@media (width < 100rem) {
     .content {
         max-width: var(--size-main);
         padding: 1rch;
@@ -718,16 +802,6 @@ div[level] { padding-left: 2rch; }
     nav.side.active {
         right: 0;
     }
-}
-
-@media (width < 60rem) {
-    main {
-        display: block;
-    }
-
-    .content {
-        width: 100%;
-    }
     
     .block {
         margin-bottom: 3rch;
@@ -752,5 +826,15 @@ div[level] { padding-left: 2rch; }
     td {
         font-size: 0.8rem;
         line-height: 1.2rem;
+    }
+}
+
+@media (width < calc(60rem + 2rch)) {
+    main {
+        display: block;
+    }
+
+    .content {
+        width: 100%;
     }
 }

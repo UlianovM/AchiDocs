@@ -27,7 +27,7 @@
 
 
 
-                    <h2>Локализация консоли установщика</h2>
+                    <h2 id="installer-locale">Локализация установщика</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -58,7 +58,7 @@
 
 
 
-                    <h2>Проверка режима загрузки (UEFI)</h2>
+                    <h2 id="check-bios-mode">Проверка режима загрузки</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -74,7 +74,7 @@
                                 </thead>
                                 <tbody>
                                     <tr> <td class="min-width"><code class="inline">32</code> или <code class="inline">64</code></td><td>UEFI</td> </tr>
-                                    <tr> <td class="min-width"><code class="inline"><c31>No such file or directory</c31></code></td><td>BIOS/CSM</td> </tr>
+                                    <tr> <td class="min-width"><code class="inline">No such file or directory</code></td><td>BIOS/CSM</td> </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -82,7 +82,7 @@
 
 
 
-                    <h2>Подключение к сети</h2>
+                    <h2 id="connection-to-the-network">Подключение к сети</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -147,7 +147,7 @@
 
 
 
-                    <h2>Время и часовой пояс</h2>
+                    <h2 id="time-sync">Время и часовой пояс</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -167,7 +167,7 @@
 
 
 
-                    <h2>Разметка дисков</h2>
+                    <h2 id="partition-the-disks">Разметка дисков</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -204,7 +204,7 @@
 
 
 
-                    <h2>Форматирование разделов</h2>
+                    <h2 id="parts-formatting">Форматирование разделов</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -231,7 +231,7 @@
 
 
 
-                    <h2>Монтирование разделов</h2>
+                    <h2 id="parts-mounting">Монтирование разделов</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -258,7 +258,7 @@
 
 
 
-                    <h2>Настройка зеркал и установка базовой системы</h2>
+                    <h2 id="setup-mirrors">Настройка зеркал и установка базовой системы</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -284,7 +284,7 @@
 
 
 
-                    <h2>Генерация fstab</h2>
+                    <h2 id="generate-fstab">Генерация fstab</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -297,7 +297,7 @@
 
 
 
-                    <h2>Вход в новую систему (chroot)</h2>
+                    <h2 id="change-root">Вход в новую систему</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -310,9 +310,9 @@
 
 
 
-                    <h2>Локализация системы</h2>
+                    <h2 id="locale">Локализация системы</h2>
                     <div class="block">
-                        <h3>Генерация локали</h3>
+                        <h3 id="generate-locale">Генерация локали</h3>
                         <div class="command">
                             <div class="text">
                                 <div class="env">#</div>
@@ -344,7 +344,7 @@
                             <button class="copy">󰆏</button>
                         </div>
 
-                        <h3>Настройка локали</h3>
+                        <h3 id="setup-locale">Настройка локали</h3>
                         <div class="command">
                             <div class="text">
                                 <div class="env">#</div>
@@ -400,7 +400,7 @@
 
 
 
-                    <h2>Имя хоста</h2>
+                    <h2 id="hostname">Имя хоста</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -413,7 +413,7 @@
 
 
 
-                    <h2>Пользователи и права</h2>
+                    <h2 id="security">Пользователи и права</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -456,7 +456,7 @@
 
 
 
-                    <h2>Настройка initramfs (mkinitcpio)</h2>
+                    <h2 id="initial-image">Настройка initramfs</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -484,7 +484,7 @@
 
 
 
-                    <h2>Настройка Unified Kernel Image (UKI)</h2>
+                    <h2 id="setup-uki">Настройка Unified Kernel Image</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -541,7 +541,7 @@
 
 
 
-                    <h2>Регистрация загрузочной записи в UEFI</h2>
+                    <h2 id="register-uefi">Регистрация загрузочной записи в UEFI</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -571,7 +571,7 @@
 
 
 
-                    <h2>Выход и перезагрузка</h2>
+                    <h2 id="exit">Выход и перезагрузка</h2>
                     <div class="block">
                         <div class="command">
                             <div class="text">
@@ -600,5 +600,7 @@
                 </nav>
             </main>
         </div>
+
+        <script src="../../src/script/init-nav.js"></script>
     </body>
 </html>

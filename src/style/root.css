@@ -60,7 +60,7 @@
 :root {
     --font-family-head:       "Noto Sans";
     --font-family-text:       "Noto Sans";
-    --font-family-link:       "Bitter";
+    --font-family-link:       "Noto Serif";
     --font-family-code:       "JetBrains Mono";
     --font-family-symbols:    "Symbols NerdFont Mono";
 
@@ -87,9 +87,13 @@
     --color-fore-link_v:        oklch( 60%   0   0);
     --color-fore-link_hv:       oklch( 80%   0   0);
     --color-fore-marker:        oklch( 40%   0   0);
-    --color-fore-meta:          oklch( 40%   0   0);
-    --color-fore-meta_h:        oklch( 48%   0   0);
-    --color-fore-meta_a:        oklch( 80%   0   0);
+    --color-fore-anchor:        oklch( 40%   0   0);
+    --color-fore-nav-item:      oklch( 60%   0   0);
+    --color-fore-nav-item_h:    oklch( 70%   0   0);
+    --color-fore-nav-item_a:    oklch( 90%   0   0);
+    --color-fore-nav-item_v:    oklch( 80% 20% 300);
+    --color-fore-nav-item_hv:   oklch( 90% 30% 290);
+    --color-fore-nav-item_av:   oklch(100% 40% 280);
     --color-fore-code:          oklch( 80%   0   0);
     --color-fore-code-head:     oklch( 60%   0   0);
     --color-fore-code-type:     oklch( 40%   0   0);
