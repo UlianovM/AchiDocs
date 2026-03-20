@@ -123,6 +123,12 @@
     --color-fore-terminal-34:    oklch( 80% 40% 260);
     --color-fore-terminal-35:    oklch( 80% 40% 310);
     --color-fore-terminal-36:    oklch( 80% 40% 190);
+    --color-fore-terminal-31_d:  oklch( 60% 20%  20);
+    --color-fore-terminal-32_d:  oklch( 60% 20% 140);
+    --color-fore-terminal-33_d:  oklch( 60% 20% 100);
+    --color-fore-terminal-34_d:  oklch( 60% 20% 260);
+    --color-fore-terminal-35_d:  oklch( 60% 20% 310);
+    --color-fore-terminal-36_d:  oklch( 60% 20% 190);
 
     --color-back-item:          oklch( 18%   0   0);
     --color-back-item_h:        oklch( 22%   0   0);

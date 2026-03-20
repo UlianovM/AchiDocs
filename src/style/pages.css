@@ -332,9 +332,36 @@ li {
 li::marker {
     font-family: var(--font-family-symbols);
     color: var(--color-fore-marker);
-   
-    content: "";
+
+    content: " ";
 }
+
+.packs li.norm::marker {
+    content: "󰗠 ";
+    color: var(--color-fore-terminal-32_d);
+}
+
+.packs li.req::marker {
+    content: "󰓏 ";
+    color: var(--color-fore-terminal-33_d);
+}
+
+.packs li.no::marker {
+    content: " ";
+    color: var(--color-fore-terminal-31_d);
+}
+
+.packs li.var::marker {
+    content: " ";
+    color: var(--color-fore-terminal-32_d);
+}
+
+.packs li.var.no::marker {
+    content: " ";
+    color: var(--color-fore-terminal-31_d);
+}
+
+
 
 .list {
     margin-bottom: 1.5rch;
@@ -436,7 +463,13 @@ code.inline {
     display: flex;
 
     flex-flow: row nowrap;
-    overflow: hidden;
+    max-height: calc(min(40rem, 50vh));
+    overflow-y: auto;
+    
+    flex-flow: row nowrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scroll-code) var(--color-back-code-body);
     
     background-color: var(--color-back-code-body);
     border: 1px solid var(--color-border-code-body);
@@ -475,13 +508,7 @@ code.inline {
     padding: 0.5rem 1rch 0.5rch 1rch;
     min-width: 100%;
 
-    max-height: calc(min(40rem, 50vh));
-    overflow-y: auto;
-    
     flex-flow: column nowrap;
-    overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-scroll-code) var(--color-back-code-body);
 }
 
 .line-numbers ~ .line-content {
@@ -513,7 +540,6 @@ code.inline {
     background-color: var(--color-back-code-body);
     border: 1px solid var(--color-border-code-body);
     border-radius: 0.5rem;
-    border-collapse: collapse;
 }
 
 .command .text {
@@ -545,7 +571,7 @@ code.inline {
     white-space: pre;
 }
 
-.command button.copy {
+button.copy {
     width: 2rem;
     height: 2rem;
     margin: -1px;
@@ -566,13 +592,75 @@ code.inline {
     box-sizing: border-box;
 }
 
-button.copy:hover {
+
+
+.file-block {
+    position: relative;
+    display: flex;
+    margin-bottom: 1.5rch;
+
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    background-color: var(--color-back-code-body);
+    border: 1px solid var(--color-border-code-body);
+    border-radius: 0.5rem;
+}
+
+.file-block code {
+    padding: 0.5rch 1rch;
+}
+
+.file-block .buttons {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.file-block button.copy,
+.file-block button.download {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin: -1px;
+    z-index: 1;
+
+    flex-shrink: 0;
+    font-family: var(--font-family-symbols);
+    text-align: center;
+    text-align: center;
+    line-height: 100%;
+    cursor: pointer;
+
+    color: var(--color-fore-code-copy);
+    background-color: var(--color-back-code-head);
+    border: none;
+    border: 1px solid var(--color-border-code-copy);
+    border-radius: calc(0.5rem - 1px);
+    box-sizing: border-box;
+}
+
+.file-block button.copy {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.file-block button.download {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+
+
+button.copy:hover,
+button.download:hover {
     color: var(--color-fore-code-copy);
     background-color: var(--color-back-code-copy_h);
     border-color: var(--color-border-code-copy_h);
 }
 
-button.copy:active {
+button.copy:active,
+button.download:active {
     color: var(--color-fore-code-copy);
     background-color: var(--color-back-code-copy_a);
     border-color: var(--color-border-code-copy_a);
@@ -604,6 +692,12 @@ c33 { color: var(--color-fore-terminal-33); }
 c34 { color: var(--color-fore-terminal-34); }
 c35 { color: var(--color-fore-terminal-35); }
 c36 { color: var(--color-fore-terminal-36); }
+c31d { color: var(--color-fore-terminal-31_d); }
+c32d { color: var(--color-fore-terminal-32_d); }
+c33d { color: var(--color-fore-terminal-33_d); }
+c34d { color: var(--color-fore-terminal-34_d); }
+c35d { color: var(--color-fore-terminal-35_d); }
+c36d { color: var(--color-fore-terminal-36_d); }
 
 exe { color: var(--color-syntax-exec); }
 fil { color: var(--color-syntax-file); }
@@ -719,13 +813,15 @@ nav h4 {
     font-weight: 500;
     color: inherit;
     background-color: inherit;
+    transition: transform 0.25s;
+    transform: translateX(0.0rch);
 }
 
 nav h3 {
     font-size: 1.0rem;
     line-height: 1.5rem;
     margin-top: 0;
-    padding-left: 1.5rch;
+    padding-left: 2rch;
 }
 
 nav h4 {
@@ -733,7 +829,7 @@ nav h4 {
     font-size: 0.9rem;
     line-height: 1.4rem;
     margin-top: 0;
-    padding-left: 3rch;
+    padding-left: 4rch;
 }
 
 nav a {
@@ -752,6 +848,12 @@ nav a:active {
 
 nav a.visible {
     color: var(--color-fore-nav-item_v);
+}
+
+nav .visible h2,
+nav .visible h3,
+nav .visible h4 {
+    transform: translateX(0.5rch);
 }
 
 nav a.visible:hover {

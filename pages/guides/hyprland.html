@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>AchiDodc Hyprland</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../src/style/root.css">
+        <link rel="stylesheet" href="../../src/style/pages.css">
+    </head>
+    <body>
+        <div class="overlay" onclick="hideOverlay()"></div>
+        
+        <div class="layout">
+            <header onclick="hideOverlay()">
+                <h1><a href="../../index.html">Hyprland</a></h1>
+            </header>
+            <main>
+                <menu class="side">
+                </menu>
+                <div class="content">
+                    <button class="side-btn menu"
+                        onclick="toggleMenu()">
+                    </button>
+                    <button class="side-btn nav"
+                        onclick="toggleNav()">
+                    </button>
+
+
+                    
+                    <h2>Основных компоненты</h2>
+                    <div class="block">
+                        <ul class="packs">
+                            <li><h4 anchor>Основной:</h4>
+                                <ul><li class="req"><code class="inline">hyprland</code> - </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Шрифты:</h4>
+                                <ul><li class="req"><code class="inline">noto-fonts</code> - </li>
+                                    <li class="norm"><code class="inline">noto-fonts-cjk</code> - </li>
+                                    <li class="norm"><code class="inline">ttf-ms-fonts</code> - </li>
+                                    <li class="norm no"><code class="inline">ttf-nerd-fonts-symbols-mono</code> - </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Графический эмулятор терминала:</h4>
+                                <ul><li class="var"><code class="inline">alacritty</code> - </li>
+                                    <li class="var no"><code class="inline">kitty</code> - </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Веб браузер:</h4>
+                                <ul><li class="norm"><code class="inline">firefox</code> - </li>
+                                    <li class="norm"><code class="inline">vivaldi</code> - </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                    <h2>Компоненты окружения</h2>
+                    <div class="block">
+                        <ul class="packs">
+                            <li><h4 anchor>Совместимость</h4>
+                                <ul>
+                                    <li class="req"><code class="inline">xdg-desktop-portal-hyprland</code> - </li>
+                                    <li class="req"><code class="inline">xdg-desktop-portal-gtk</code> - </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Энергосбережение:</h4>
+                                <ul><li class="req"><code class="inline">upower</code> - </li>
+                                    <li class="norm"><code class="inline">power-profiles-daemon</code> - </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Каталоги-управления:</h4>
+                                <ul><li class="norm"><code class="inline">brightnessctl</code> - </li>
+                                    <li class="norm"><code class="inline">playerctl</code> - </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Лаунчер приложений:</h4>
+                                <ul><li class="var"><code class="inline">hyprlauncher</code> - </li>
+                                    <li class="var no"><code class="inline">wofi</code> - </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Файловый менеджер:</h4>
+                                <ul><li><b>Графический:</b>
+                                        <ul><li class="var"><code class="inline">thunar</code> - </li>
+                                            <li class="var no"><code class="inline">dolphin</code> - </li>
+                                            <li class="var no"><code class="inline">nautilus</code> - </li>
+                                        </ul>
+                                    </li>
+                                    <li><b>TTY:</b>
+                                        <ul><li class="norm no"><code class="inline">ranger</code> - </li>
+                                            <li class="norm no"><code class="inline">fff</code> (AUR) - </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Прочие:</h4>
+                                <ul>
+                                    <li class="norm"><code class="inline">kcharselect</code> - </li>
+                                    <li class="norm"><code class="inline">grimblast-git</code> (AUR) - </li>
+                                    <li class="norm"><code class="inline">sddm</code> - </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                    <h2>Кастомизация</h2>
+                    <div class="block">
+                        <ul class="packs">
+                            <li><h4 anchor>Оформление:</h4>
+                                <ul><li class="norm"><code class="inline">qt5-base</code> - </li>
+                                    <li class="norm"><code class="inline">qt6-base</code> - </li>
+                                    <li class="norm"><code class="inline">qt6ct</code> - </li>
+                                    <li class="norm"><code class="inline">gtk3</code> - </li>
+                                    <li class="norm"><code class="inline">gtk4</code> - </li>
+                                    <li class="norm"><code class="inline">kvantum</code> - </li>
+                                    <li class="norm"><code class="inline">kvantum-qt5</code> - </li>
+                                    <li class="norm"><code class="inline">nwg-look</code> - </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Темы:</h4>
+                                <ul><li class="norm no"><code class="inline">materia-gtk-theme</code> - </li>
+                                    <li class="norm no"><code class="inline">papirus-icon-theme</code> - </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Утилиты Hyprland:</h4>
+                                <ul><li class="norm"><code class="inline">hyprpaper</code> - </li>
+                                    <li class="norm"><code class="inline">hyprpicker</code> - </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                    <h2>Аудио</h2>
+                    <div class="block">
+                        <ul class="packs">
+                            <li><h4 anchor>Основные:</h4>
+                                <ul>
+                                    <li class="req"><code class="inline">pipewire</code> - </li>
+                                    <li class="req"><code class="inline">pipewire-alsa</code> - </li>
+                                    <li class="req"><code class="inline">alsa-utils</code> - </li>
+                                    <li class="req"><code class="inline">pipewire-jack</code> - </li>
+                                    <li class="req"><code class="inline">pipewire-pulse</code> - </li>
+                                    <li class="req"><code class="inline">wireplumber</code> - </li>
+                                </ul>
+                            </li>
+                            <li><h4 anchor>Bluetooth:</h4>
+                                <ul>
+                                    <li class="req"><code class="inline">bluez</code> - </li>
+                                    <li class="req"><code class="inline">bluez-utils</code> - </li>
+                                    <li class="norm"><code class="inline">blueman</code> - </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <nav class="side">
+                </nav>
+            </main>
+        </div>
+
+        <script src="../../src/script/init-nav.js"></script>
+    </body>
+</html>

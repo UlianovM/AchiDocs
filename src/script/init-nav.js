@@ -2,7 +2,7 @@ const title   = document.querySelector("header h1");
 const content = document.querySelector("main > .content");
 const nav     = document.querySelector("nav");
 
-const heads = content.querySelectorAll("h2, h3[id], .anchor[id]");
+const heads = content.querySelectorAll("h2, h3[id], .anchor, *[anchor]");
 
 
 
